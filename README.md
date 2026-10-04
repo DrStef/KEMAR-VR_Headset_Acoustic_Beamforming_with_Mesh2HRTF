@@ -250,10 +250,7 @@ The directivity pattern in the $z=0$ plane clearly reveals the onset of spatial 
 Project files (`NC.inp`, skin, $1 \mathrm{m}$ grid) live in `KemarVR_bem/`. <br>
 
 At a fixed frequency the BEM unknown is the boundary field.
-NumCalc assembles a square *self-influence* matrix $A(k)$ from the
-Helmholtz kernel on this skin (KEMAR + headset). $A$ depends on
-geometry and on frequency $k=\omega/c$ only --- not on where the point source
-sits. The source position appears in the right-hand side $b(k)$.
+NumCalc assembles a square *self-influence* matrix $A(k)$ from the Helmholtz kernel on this skin (KEMAR + headset). $A$ depends on geometry and on frequency $k=\omega/c$ only --- not on where the point source sits. The source position appears in the right-hand side $b(k)$.
 Four seats should therefore be four $b$'s and **one** factorisation
 of $A(k)$. Today each `source_*` folder still rebuilds $A$.
 $A$ cannot be reused from one frequency to the next.
