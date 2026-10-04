@@ -45,10 +45,10 @@ $-30 \mathrm{dB}$ above $1 \mathrm{kHz}$.
 
 **Part II** (this page, first) — KEMAR-style dummy + generic VR headset,
 four reciprocal point sources on a $2.5 \mathrm{cm}$ line, far-field
-TFs toward $\mathbf{r}=(1,0,0)\,\mathrm{m}$, boundary $|p|$, planar
+TFs toward $\mathbf{r}=(1,0,0) \mathrm{m}$, boundary $|p|$, planar
 beampattern, DI and WNG.
 
-**Part I** — rigid sphere $a=0.10\,\mathrm{m}$, Ico-4 versus Morse,
+**Part I** — rigid sphere $a=0.10 \mathrm{m}$, Ico-4 versus Morse,
 point source $2 \mathrm{mm}$ off the skin, observers at $10 \mathrm{m}$.
 That run fixes units, standoff, and trust in NumCalc.
 
@@ -139,13 +139,13 @@ Company page: [bloo-audio.com/array51](https://www.bloo-audio.com/array51/)
 
 ### 2. Linear microphone array — look direction $(1,0,0) m$
 
-Four reciprocal point sources sit $2\,\mathrm{mm}$ off the skin on the right side of the headset, $2.5\,\mathrm{cm}$ apart, on a linear end-fire line. Each NumCalc run is the transfer function $H_m(f;\mathbf{r})$ between seat $m=1,2,3,4$ and the field. 
-The design look is the $1\,\mathrm{m}$ station $\mathbf{r}=(1,0,0)\,\mathrm{m}$ ($+x$, nose). The beam is **fixed frontal**: one steering vector toward that point.
+Four reciprocal point sources sit $2 \mathrm{mm}$ off the skin on the right side of the headset, $2.5 \mathrm{cm}$ apart, on a linear end-fire line. Each NumCalc run is the transfer function $H_m(f;\mathbf{r})$ between seat $m=1,2,3,4$ and the field. 
+The design look is the $1 \mathrm{m}$ station $\mathbf{r}=(1,0,0)\,\mathrm{m}$ ($+x$, nose). The beam is **fixed frontal**: one steering vector toward that point.
 The rest of the $\sim 1850$-point unit sphere is only used to plot the pattern and to build the isotropic covariance.
 
-Against a reference FEM/BEM run, magnitude stays within about $0.2\,\mathrm{dB}$; phase matches after the $e^{\pm j\omega t}$
-convention (`-angle` on NumCalc). MVDR uses these TFs with a WNG floor of $-25\,\mathrm{dB}$ below $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$
-above $1\,\mathrm{kHz}$
+Against a reference FEM/BEM run, magnitude stays within about $0.2 \mathrm{dB}$; phase matches after the $e^{\pm j\omega t}$
+convention (`-angle` on NumCalc). MVDR uses these TFs with a WNG floor of $-25 \mathrm{dB}$ below $500 \mathrm{Hz}$, ramping to $-30 \mathrm{dB}$
+above $1 \mathrm{kHz}$
 
 
 <div align="center">
@@ -173,7 +173,7 @@ Seats and standoff are those of §2.
 
 </div>
 
-Below $400\,\mathrm{Hz}$, mic\_1 and mic\_2 sit about $0.2\,\mathrm{dB}$
+Below $400 \mathrm{Hz}$, mic\_1 and mic\_2 sit about $0.2 \mathrm{dB}$
 off a reference FEM/BEM run — the same low $ka$ bias as on the rigid sphere in Part I.
 That mismatch is enough to wrinkle a superdirective MVDR. The WNG floor
 in the next section, is there so the weights follow the physics, not the solver noise.
@@ -184,13 +184,13 @@ in the next section, is there so the weights follow the physics, not the solver 
 
 The four TFs at $\mathbf{r}_{\mathrm{look}}=(1,0,0)\,\mathrm{m}$ form the
 steering vector $\mathbf{d}(f)$. The noise field is taken **isotropic**:
-the covariance $\Gamma(f)$ is the Gram matrix of the TFs on the $1\,\mathrm{m}$
+the covariance $\Gamma(f)$ is the Gram matrix of the TFs on the $1 \mathrm{m}$
 evaluation sphere. Standard MVDR ($\mathbf{w}^H\mathbf{d}=1$) is then
-diagonally loaded until the white-noise gain stays above $-25\,\mathrm{dB}$.
+diagonally loaded until the white-noise gain stays above $-25 \mathrm{dB}$.
 
 That floor is a robustness knob, not a performance target. It keeps
-$w_{\mathrm{opt}}(f)$ smooth below $500\,\mathrm{Hz}$, where Mesh2HRTF
-is about $0.2\,\mathrm{dB}$ off a reference solver, and it stops the
+$w_{\mathrm{opt}}(f)$ smooth below $500 \mathrm{Hz}$, where Mesh2HRTF
+is about $0.2 \mathrm{dB}$ off a reference solver, and it stops the
 beam from fitting solver noise. Directivity index (DI) and the
 *realised* WNG are plotted against frequency for the same weights.
 
@@ -259,8 +259,8 @@ of $A(k)$. Today each `source_*` folder still rebuilds $A$.
 $A$ cannot be reused from one frequency to the next.
 
 Parameters: 
-$c=346.18\,\mathrm{m/s}$, FMM cluster $0.05\,\mathrm{m}$,
-standoff $2\,\mathrm{mm}$: see `NC.inp`.
+$c=346.18 \mathrm{m/s}$, FMM cluster $0.05 \mathrm{m}$,
+standoff $2 \mathrm{mm}$: see `NC.inp`.
 
 
 NumCalc is a Unix binary. On Windows, install **WSL2** with Ubuntu
@@ -288,7 +288,7 @@ To establish numerical tolerances and build trust in our BEM workflow, we valida
 - **Analytical scattering** of a plane wave (Morse & Ingard solution).
 - **Reciprocal point source** placed a few millimeters outside the skin (Mesh2HRTF / NumCalc), acting as a stand-in for a surface microphone.
 
-Evaluations span $100\,\mathrm{Hz}$ to $8\,\mathrm{kHz}$ with pressure magnitude $\vert{}p\vert{}$ reported across meridional angles ($0^\circ$ to $180^\circ$).
+Evaluations span $100 \mathrm{Hz}$ to $8 \mathrm{kHz}$ with pressure magnitude $\vert{}p\vert{}$ reported across meridional angles ($0^\circ$ to $180^\circ$).
 
 We compare two related but distinct problems that should agree closely
 on the rigid-sphere boundary and, by reciprocity, at far-field points
@@ -308,10 +308,10 @@ Overall the match is excellent from $100 \mathrm{Hz}$ to $8 \mathrm{kHz}$
 The rigid sphere and its icosahedral (Ico) mesh were generated in Blender and exported via `mesh2input` to create the NumCalc input files (`NC.inp`).
 
 - **Mesh Resolution:** 4 subdivisions yielding **5120 triangular elements** and **2562 nodes**. 
-- **Mean Edge Length:** $h \approx 7.53\,\mathrm{mm}$ ($\approx 7.5\,\mathrm{mm}$).
-- **Sound Speed:** $c = 346.18\,\mathrm{m/s}$.
+- **Mean Edge Length:** $h \approx 7.53 \mathrm{mm}$ ($\approx 7.5 \mathrm{mm}$).
+- **Sound Speed:** $c = 346.18 \mathrm{m/s}$.
 - **Frequency Limit ($\lambda/6$ rule):** 
-  $$f_{\lambda/6} = \frac{c}{6h} \approx 7.7\,\mathrm{kHz}$$
+  $$f_{\lambda/6} = \frac{c}{6h} \approx 7.7 \mathrm{kHz}$$
 
 
 
@@ -319,7 +319,7 @@ The rigid sphere and its icosahedral (Ico) mesh were generated in Blender and ex
 
 At $8\,\mathrm{kHz}$ the mesh is slightly coarser than $\lambda/6$ ($\approx\lambda/5.75$). Burton–Miller collocation BEM often needs **more than
 six elements per wavelength** at high $ka$, so part of the residual mismatch above $ka \approx 10$ ($\approx 5.5 \mathrm{kHz}$) — in particular the
-$0.2 \mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6 - 8\,\mathrm{kHz}$ — is consistent with discretisation / quadrature rather than a geometry error. A five-subdivision Ico mesh ($20,480$ faces, $h \approx 3.8 \mathrm{mm}$) would put $\lambda/6$ well above $8 \mathrm{kHz}$ if a tighter high-frequency check is required.
+$0.2 \mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6 - 8 \mathrm{kHz}$ — is consistent with discretisation / quadrature rather than a geometry error. A five-subdivision Ico mesh ($20,480$ faces, $h \approx 3.8 \mathrm{mm}$) would put $\lambda/6$ well above $8 \mathrm{kHz}$ if a tighter high-frequency check is required.
 
 #### Solver Engine (NumCalc)
 
@@ -330,13 +330,13 @@ We used ML-FMM (cluster diameter 0.05 m). Changing it to 0.025 m did not
 change the look-direction TFs on this mesh.
 
 NumCalc solves the Helmholtz equation using a **Burton–Miller collocation BEM**, optionally accelerated by the **Multilevel Fast Multipole Method (ML-FMM)** for cluster-to-cluster coupling. 
-- *Working configuration:* ML-FMM with a cluster diameter of $0.05\,\mathrm{m}$ (changing this to $0.025\,\mathrm{m}$ showed no noticeable change on the look-direction transfer function).
+- *Working configuration:* ML-FMM with a cluster diameter of $0.05 \mathrm{m}$ (changing this to $0.025 \mathrm{m}$ showed no noticeable change on the look-direction transfer function).
 
 <div align="center">
 
 | <p align="center"> <img src="./pictures/Blender_Sphere_BEMV02.png" alt="Sphere validation" width="55%"> </p> | <p align="center"> <img src="./pictures/Sphere_PointSource_1kHz.png" alt="Sphere validation" width="90%"> </p> |
 | :---: | :---: |
-| <p align="center"> <i> BEM model - Rigid Sphere, radius $a = 0.1\,\mathrm{m}$ <br> 5120 triangular elements, 2562 nodes (Blender) </i> </p> | <p align="center"> <i> Mesh2HRTF: Pressure field on boundary at $1\,\mathrm{kHz}$ <br> point source at $(0.102, 0, 0)\,\mathrm{m}$ </i> </p> |
+| <p align="center"> <i> BEM model - Rigid Sphere, radius $a = 0.1\,\mathrm{m}$ <br> 5120 triangular elements, 2562 nodes (Blender) </i> </p> | <p align="center"> <i> Mesh2HRTF: Pressure field on boundary at $1 \mathrm{kHz}$ <br> point source at $(0.102, 0, 0) \mathrm{m}$ </i> </p> |
 
 </div>
 
@@ -350,9 +350,9 @@ The Wiki guideline suggests a source standoff $\geq 0.3\,\mathrm{mm}$ outside th
 
 | Standoff | $x$-position | High-Frequency Behavior | Low-Frequency Behavior |
 | :---: | :---: | :--- | :--- |
-| **$5\,\mathrm{mm}$** | $0.105\,\mathrm{m}$ | Drop above $5\,\mathrm{kHz}$ ($0^\circ$ and $30^\circ$) | Good |
-| **$2\,\mathrm{mm}$** | $0.102\,\mathrm{m}$ | **Best**, near $6\,\mathrm{dB}$ baffle step | Good |
-| **$1\,\mathrm{mm}$** | $0.101\,\mathrm{m}$ | Crushed above $3 \mathrm{kHz}$ ($\approx 5.5 \mathrm{dB}$ at $7 - 8 \mathrm{kHz}$) | Best LF collapse to $0 \mathrm{dB}$ |
+| **$5\,\mathrm{mm}$** | $0.105 \mathrm{m}$ | Drop above $5 \mathrm{kHz}$ ($0^\circ$ and $30^\circ$) | Good |
+| **$2\,\mathrm{mm}$** | $0.102 \mathrm{m}$ | **Best**, near $6 \mathrm{dB}$ baffle step | Good |
+| **$1\,\mathrm{mm}$** | $0.101 \mathrm{m}$ | Crushed above $3 \mathrm{kHz}$ ($\approx 5.5 \mathrm{dB}$ at $7 - 8 \mathrm{kHz}$) | Best LF collapse to $0 \mathrm{dB}$ |
 
 </div>
 
@@ -365,7 +365,7 @@ The Wiki guideline suggests a source standoff $\geq 0.3\,\mathrm{mm}$ outside th
 We compare two fields that reciprocity says should agree closely:
 
 - the analytical rigid-sphere scattering of a plane wave (Morse []);
-- a Mesh2HRTF / NumCalc BEM run with a point source $2 \mathrm{mm}$ outside the skin, pressure sampled at $r = 10\,\mathrm{m}$ from $0^\circ$ to $180^\circ$ in a meridional plane.
+- a Mesh2HRTF / NumCalc BEM run with a point source $2 \mathrm{mm}$ outside the skin, pressure sampled at $r = 10 \mathrm{m}$ from $0^\circ$ to $180^\circ$ in a meridional plane.
 
 The two problems are not identical, but the far-field patterns should match. They do, to a fraction of a decibel over most of the $100 \mathrm{Hz}-8\mathrm{kHz}$ band.
 
@@ -402,7 +402,7 @@ Burton–Miller discretisation, FMM clustering, and/or the quadrature — not th
 geometry itself.
 
 **Parameters that do *not* move the look-direction TF.**  
-FMM cluster diameter $0.05\,\mathrm{m}$ vs $0.025\,\mathrm{m}$ has no significant effect
+FMM cluster diameter $0.05 \mathrm{m}$ vs $0.025 \mathrm{m}$ has no significant effect
 on this Ico-5 mesh.
 
 **Parameter that *does* matter.**  
@@ -410,8 +410,8 @@ Point-source standoff from the skin. After a $5 / 2 / 1\,\mathrm{mm}$ scan on $+
 
 
 - **Mesh Topology (Ico vs. UV):** Elongated polar triangles on UV meshes distort low frequencies ($100\,\mathrm{Hz}$) and pole calculations; Ico triangulation avoids this entirely.
-- **Piston vs. Point Sources:** A piston radiator requires area factor $S$, whereas a point source uses $P_0 = 1$ (i.e., $\frac{e^{ikR}}{4\pi R}$). At $1\,\mathrm{m}$, $20\log_{10}(4\pi) \approx +22\,\mathrm{dB}$ is required to reach $1\,\mathrm{Pa}$.
-- **High-Frequency Discretization:** At $8\,\mathrm{kHz}$, the mesh is slightly coarser than $\lambda/6$ ($\approx\lambda/5.75$). Burton–Miller collocation requires adequate elements per wavelength at high $ka$, meaning the minor $\sim 0.2\,\mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6\text{–}8\,\mathrm{kHz}$ stems from numerical quadrature rather than geometry error. (A 5-subdivision mesh with $20\,480$ faces would push $\lambda/6$ past $8\,\mathrm{kHz}$).
+- **Piston vs. Point Sources:** A piston radiator requires area factor $S$, whereas a point source uses $P_0 = 1$ (i.e., $\frac{e^{ikR}}{4\pi R}$). At $1 \mathrm{m}$, $20\log_{10}(4\pi) \approx +22\,\mathrm{dB}$ is required to reach $1\,\mathrm{Pa}$.
+- **High-Frequency Discretization:** At $8 \mathrm{kHz}$, the mesh is slightly coarser than $\lambda/6$ ($\approx\lambda/5.75$). Burton–Miller collocation requires adequate elements per wavelength at high $ka$, meaning the minor $\sim 0.2 \mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6\text{–}8 \mathrm{kHz}$ stems from numerical quadrature rather than geometry error. (A 5-subdivision mesh with $20\,480$ faces would push $\lambda/6$ past $8 \mathrm{kHz}$).
 
 ---
 
