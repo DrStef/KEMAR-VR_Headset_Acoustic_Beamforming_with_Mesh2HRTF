@@ -247,7 +247,7 @@ The directivity pattern in the $z=0$ plane clearly reveals the onset of spatial 
 
 ### 7. Reproducing the BEM run
 
-Project files (`NC.inp`, skin, $1\,\mathrm{m}$ grid) live in `KemarVR_bem/`. <br>
+Project files (`NC.inp`, skin, $1 \mathrm{m}$ grid) live in `KemarVR_bem/`. <br>
 
 At a fixed frequency the BEM unknown is the boundary field.
 NumCalc assembles a square *self-influence* matrix $A(k)$ from the
@@ -280,11 +280,11 @@ cd KemarVR_bem/NumCalc
 <br>
 <br> 
 
-## Part I — Validation of the Mesh2HRTF BEM Solver <br> (Rigid Sphere, $a = 0.1\,\mathrm{m}$)
+## Part I — Validation of the Mesh2HRTF BEM Solver <br> (Rigid Sphere, $a = 0.1 \mathrm{m}$)
 
 ### 1. Overview & Objectives
 
-To establish numerical tolerances and build trust in our BEM workflow, we validate the open-source pipeline against an analytical solution. We compare two related problems that should agree closely on the rigid-sphere boundary and, by reciprocity, at far-field points ($r = 10\,\mathrm{m}$):
+To establish numerical tolerances and build trust in our BEM workflow, we validate the open-source pipeline against an analytical solution. We compare two related problems that should agree closely on the rigid-sphere boundary and, by reciprocity, at far-field points ($r = 10 \mathrm{m}$):
 - **Analytical scattering** of a plane wave (Morse & Ingard solution).
 - **Reciprocal point source** placed a few millimeters outside the skin (Mesh2HRTF / NumCalc), acting as a stand-in for a surface microphone.
 
@@ -374,7 +374,7 @@ The two problems are not identical, but the far-field patterns should match. The
 |                              ---                                               |  -----   |
 | <p align="center"> <i> Analytical Model - Sound pressure on the sphere <br> Plane  z=0  - Various angles </i> </p>   |    <p align="center"> <i> mshr2HSRTF BEM Model - Sound pressure at 10 m  <br> Plane  z=0  - Various angles </i>        </p>              |
 
-At $ka \approx 0.1$ the Mesh2HRTF far-field samples at $r = 10\,\mathrm{m}$ are:
+At $ka \approx 0.1$ the Mesh2HRTF far-field samples at $r = 10 \mathrm{m}$ are:
 
 <div align="center">
 
@@ -389,17 +389,15 @@ At $ka \approx 0.1$ the Mesh2HRTF far-field samples at $r = 10\,\mathrm{m}$ are:
 
 </div>
 
-The angular spread is **$0.30\,\mathrm{dB}$**. The analytical plane-wave solution (and the reference BEM) is essentially isotropic at this $ka$. The bias is therefore numerical: Burton–Miller collocation and FMM / quadrature at low frequency, not the $2 \mathrm{mm}$ standoff and not the $10 \mathrm{m}$ station.
+The magnitude spread is **$0.30 \mathrm{dB}$**. The analytical plane-wave solution (and the reference BEM) is essentially isotropic at this $ka$. The bias is therefore numerical: Burton–Miller collocation and FMM / quadrature at low frequency, not the $2 \mathrm{mm}$ standoff and not the $10 \mathrm{m}$ station.
 
 **Low frequency** ($50–100 \mathrm{Hz}$, $ka \approx 0.1 – 0.2$).  
 The analytical field is essentially isotropic ($\sim 0 \mathrm{dB}$ spread across angles).
-Mesh2HRTF shows a slightly larger angular variance, about $0.3–0.4 \mathrm{dB}$.
+Mesh2HRTF shows a slightly larger magnitude variance, about $0.3–0.4 \mathrm{dB}$.
 
 **High frequency** (around \(ka = 10\)).  
 On the illuminated side ($0^\circ$ and $30^\circ$) the computed amplitude sags by about $0.2 \mathrm{dB}$.
-The same droop appears in other Mesh2HRTF validations. Likely causes are the
-Burton–Miller discretisation, FMM clustering, and/or the quadrature — not the
-geometry itself.
+The same droop appears in other Mesh2HRTF validations. Likely causes are the Burton–Miller discretisation, FMM clustering, and/or the quadrature — not the geometry itself.
 
 **Parameters that do *not* move the look-direction TF.**  
 FMM cluster diameter $0.05 \mathrm{m}$ vs $0.025 \mathrm{m}$ has no significant effect
