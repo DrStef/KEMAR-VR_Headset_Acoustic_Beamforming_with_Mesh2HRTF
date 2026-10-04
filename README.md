@@ -344,7 +344,7 @@ NumCalc solves the Helmholtz equation using a **Burton–Miller collocation BEM*
 
 ### 3. Point-Source Standoff Tuning
 
-The Wiki guideline suggests a source standoff $\geq 0.3\,\mathrm{mm}$ outside the skin, while Kreuzer recommends approximately one mean edge length. We scanned **$5\,\mathrm{mm}$, $2\,\mathrm{mm}$, and $1\,\mathrm{mm}$** along the $+x$ axis:
+The Wiki guideline suggests a source standoff $\geq 0.3 \mathrm{mm}$ outside the skin, while Kreuzer recommends approximately one mean edge length. We scanned **$5 \mathrm{mm}$, $2 \mathrm{mm}$, and $1 \mathrm{mm}$** along the $+x$ axis:
 
 <div align="center">
 
