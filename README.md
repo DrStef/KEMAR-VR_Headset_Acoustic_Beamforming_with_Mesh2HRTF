@@ -131,7 +131,7 @@ The skin is **not** a topological sphere. A gap between the headset strap and th
 - binaural beamforming
 - Ambisonics / array processing on a dummy + headset
 
-Microphone examples in this repo use a small linear subset on one side of the headset (2.5 cm spacing). Reciprocal point sources sit $2\,\mathrm{mm}$ off the skin.
+Microphone examples in this repo use a small linear subset on one side of the headset (2.5 cm spacing). Reciprocal point sources sit $2 \mathrm{mm}$ off the skin.
 
 This repository documents **validation** and **far-field TFs** for a 4-microphone subset of the array. Beamforming examples (MVDR, near-field) can be built from these TFs; **the optimizer is not published**.
 
