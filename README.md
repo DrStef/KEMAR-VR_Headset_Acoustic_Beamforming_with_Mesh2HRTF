@@ -44,12 +44,12 @@ floored at $-25 \mathrm{dB}$ below $500 \mathrm{Hz}$, then ramps to
 $-30 \mathrm{dB}$ above $1 \mathrm{kHz}$.
 
 **Part II** (this page, first) — KEMAR-style dummy + generic VR headset,
-four reciprocal point sources on a $2.5\,\mathrm{cm}$ line, far-field
+four reciprocal point sources on a $2.5 \mathrm{cm}$ line, far-field
 TFs toward $\mathbf{r}=(1,0,0)\,\mathrm{m}$, boundary $|p|$, planar
 beampattern, DI and WNG.
 
 **Part I** — rigid sphere $a=0.10\,\mathrm{m}$, Ico-4 versus Morse,
-point source $2\,\mathrm{mm}$ off the skin, observers at $10\,\mathrm{m}$.
+point source $2 \mathrm{mm}$ off the skin, observers at $10 \mathrm{m}$.
 That run fixes units, standoff, and trust in NumCalc.
 
 **Part III** (later) — near-field beamforming, three vertical microphones.
