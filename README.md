@@ -54,6 +54,7 @@ That run fixes units, standoff, and trust in NumCalc.
 
 **Part III** (later) — near-field beamforming, three vertical microphones.
 
+**Links**
 - Company: [bloo-audio.com/array51](https://www.bloo-audio.com/array51)
 - Solver: [Mesh2HRTF / NumCalc](https://github.com/Any2HRTF/Mesh2HRTF)
 - Solver parameters: [NumCalc](https://github.com/Any2HRTF/Mesh2HRTF/wiki/NumCalc)
