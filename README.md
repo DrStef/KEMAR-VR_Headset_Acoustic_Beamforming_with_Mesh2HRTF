@@ -380,12 +380,12 @@ At $ka \approx 0.1$ the Mesh2HRTF far-field samples at $r = 10 \mathrm{m}$ are:
 
 | Angle | $\|p\|$ | Level re $0^\circ$ |
 |---|---|---|
-| $0^\circ$ | $1.0212\times 10^{-1}$ | $0.00\,\mathrm{dB}$ |
-| $30^\circ$ | $1.0161\times 10^{-1}$ | $-0.04\,\mathrm{dB}$ |
-| $60^\circ$ | $1.0044\times 10^{-1}$ | $-0.14\,\mathrm{dB}$ |
-| $90^\circ$ | $9.9313\times 10^{-2}$ | $-0.24\,\mathrm{dB}$ |
-| $120^\circ$ | $9.8742\times 10^{-2}$ | $-0.29\,\mathrm{dB}$ |
-| $150^\circ$ | $9.8670\times 10^{-2}$ | $-0.30\,\mathrm{dB}$ |
+| $0^\circ$ | $1.0212\times 10^{-1}$ | $0.00 \mathrm{dB}$ |
+| $30^\circ$ | $1.0161\times 10^{-1}$ | $-0.04 \mathrm{dB}$ |
+| $60^\circ$ | $1.0044\times 10^{-1}$ | $-0.14 \mathrm{dB}$ |
+| $90^\circ$ | $9.9313\times 10^{-2}$ | $-0.24 \mathrm{dB}$ |
+| $120^\circ$ | $9.8742\times 10^{-2}$ | $-0.29 \mathrm{dB}$ |
+| $150^\circ$ | $9.8670\times 10^{-2}$ | $-0.30 \mathrm{dB}$ |
 
 </div>
 
