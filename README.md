@@ -162,7 +162,7 @@ above $1 \mathrm{kHz}$
 
 The four curves are
 $20\log_{10}\bigl|4\pi p (f;\mathbf{r}_{\mathrm{look}})\bigr|$
-for $m=1,2,3,4$, look $\mathbf{r}=(1,0,0)\,\mathrm{m}$.
+for $m=1,2,3,4$, look $\mathbf{r}=(1,0,0) \mathrm{m}$.
 Seats and standoff are those of §2.
 
 <div align="center">
@@ -317,7 +317,7 @@ The rigid sphere and its icosahedral (Ico) mesh were generated in Blender and ex
 
 ####  BEM mesh
 
-At $8\,\mathrm{kHz}$ the mesh is slightly coarser than $\lambda/6$ ($\approx\lambda/5.75$). Burton–Miller collocation BEM often needs **more than
+At $8 \mathrm{kHz}$ the mesh is slightly coarser than $\lambda/6$ ($\approx\lambda/5.75$). Burton–Miller collocation BEM often needs **more than
 six elements per wavelength** at high $ka$, so part of the residual mismatch above $ka \approx 10$ ($\approx 5.5 \mathrm{kHz}$) — in particular the
 $0.2 \mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6 - 8 \mathrm{kHz}$ — is consistent with discretisation / quadrature rather than a geometry error. A five-subdivision Ico mesh ($20,480$ faces, $h \approx 3.8 \mathrm{mm}$) would put $\lambda/6$ well above $8 \mathrm{kHz}$ if a tighter high-frequency check is required.
 
@@ -336,7 +336,7 @@ NumCalc solves the Helmholtz equation using a **Burton–Miller collocation BEM*
 
 | <p align="center"> <img src="./pictures/Blender_Sphere_BEMV02.png" alt="Sphere validation" width="55%"> </p> | <p align="center"> <img src="./pictures/Sphere_PointSource_1kHz.png" alt="Sphere validation" width="90%"> </p> |
 | :---: | :---: |
-| <p align="center"> <i> BEM model - Rigid Sphere, radius $a = 0.1\,\mathrm{m}$ <br> 5120 triangular elements, 2562 nodes (Blender) </i> </p> | <p align="center"> <i> Mesh2HRTF: Pressure field on boundary at $1 \mathrm{kHz}$ <br> point source at $(0.102, 0, 0) \mathrm{m}$ </i> </p> |
+| <p align="center"> <i> BEM model - Rigid Sphere, radius $a = 0.1 \mathrm{m}$ <br> 5120 triangular elements, 2562 nodes (Blender) </i> </p> | <p align="center"> <i> Mesh2HRTF: Pressure field on boundary at $1 \mathrm{kHz}$ <br> point source at $(0.102, 0, 0) \mathrm{m}$ </i> </p> |
 
 </div>
 
@@ -389,7 +389,7 @@ At $ka \approx 0.1$ the Mesh2HRTF far-field samples at $r = 10\,\mathrm{m}$ are:
 
 </div>
 
-The angular spread is **$0.30\,\mathrm{dB}$**. The analytical plane-wave solution (and the reference BEM) is essentially isotropic at this $ka$. The bias is therefore numerical: Burton–Miller collocation and FMM / quadrature at low frequency, not the $2\,\mathrm{mm}$ standoff and not the $10\,\mathrm{m}$ station.
+The angular spread is **$0.30\,\mathrm{dB}$**. The analytical plane-wave solution (and the reference BEM) is essentially isotropic at this $ka$. The bias is therefore numerical: Burton–Miller collocation and FMM / quadrature at low frequency, not the $2 \mathrm{mm}$ standoff and not the $10 \mathrm{m}$ station.
 
 **Low frequency** ($50–100 \mathrm{Hz}$, $ka \approx 0.1 – 0.2$).  
 The analytical field is essentially isotropic ($\sim 0 \mathrm{dB}$ spread across angles).
@@ -409,22 +409,19 @@ on this Ico-5 mesh.
 Point-source standoff from the skin. After a $5 / 2 / 1\,\mathrm{mm}$ scan on $+x$, **$2 \mathrm{mm}$** is the working choice (clean high-frequency baffle step, acceptable low-frequency collapse). The same offset is used later for headset microphone positions.
 
 
-- **Mesh Topology (Ico vs. UV):** Elongated polar triangles on UV meshes distort low frequencies ($100\,\mathrm{Hz}$) and pole calculations; Ico triangulation avoids this entirely.
-- **Piston vs. Point Sources:** A piston radiator requires area factor $S$, whereas a point source uses $P_0 = 1$ (i.e., $\frac{e^{ikR}}{4\pi R}$). At $1 \mathrm{m}$, $20\log_{10}(4\pi) \approx +22\,\mathrm{dB}$ is required to reach $1\,\mathrm{Pa}$.
+- **Mesh Topology (Ico vs. UV):** Elongated polar triangles on UV meshes distort low frequencies ($100 \mathrm{Hz}$) and pole calculations; Ico triangulation avoids this entirely.
+- **Piston vs. Point Sources:** A piston radiator requires area factor $S$, whereas a point source uses $P_0 = 1$ (i.e., $\frac{e^{ikR}}{4\pi R}$). At $1 \mathrm{m}$, $20\log_{10}(4\pi) \approx +22 \mathrm{dB}$ is required to reach $1 \mathrm{Pa}$.
 - **High-Frequency Discretization:** At $8 \mathrm{kHz}$, the mesh is slightly coarser than $\lambda/6$ ($\approx\lambda/5.75$). Burton–Miller collocation requires adequate elements per wavelength at high $ka$, meaning the minor $\sim 0.2 \mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6\text{–}8 \mathrm{kHz}$ stems from numerical quadrature rather than geometry error. (A 5-subdivision mesh with $20\,480$ faces would push $\lambda/6$ past $8 \mathrm{kHz}$).
 
 ---
 
 ### 5. Practical Summary & Takeaways
 
-Treat Mesh2HRTF as a solid open BEM tool for research and array design —
-MVDR / LCMV, binaural beamforming, and SSL — in the **$100 – 8000 \mathrm{Hz}$**
-band that matters for AR/VR devices. Use a $\sim 2 \mathrm{mm}$ reciprocal
-point source for surface microphones, keep an eye on the low-frequency angular
-spread and the mild high-frequency look-direction loss, and add a targeted
-check when a new mesh or frequency grid is introduced.
+Treat Mesh2HRTF as a solid open BEM tool for research and array design — MVDR / LCMV, binaural beamforming, and SSL — in the **$100 – 8000 \mathrm{Hz}$**
+band that matters for AR/VR devices. Use a $\sim 2 \mathrm{mm}$ reciprocal point source for surface microphones, keep an eye on the low-frequency angular
+spread and the mild high-frequency look-direction loss, and add a targeted check when a new mesh or frequency grid is introduced.
 
-More mature commercial BEM codes pass the $ka \approx 0.1$ test to a few hundredths of a dB. Mesh2HRTF does not: the $0.3\,\mathrm{dB}$ front-to-back tilt is a low-frequency discretisation / quadrature error.
+More mature commercial BEM codes pass the $ka \approx 0.1$ test to a few hundredths of a dB. Mesh2HRTF does not: the $0.3 \mathrm{dB}$ front-to-back tilt is a low-frequency discretisation / quadrature error.
 
 That matters for **low-frequency array design**. In a superdirective beamformer (MVDR, LCMV) a few tenths of a dB of false magnitude — and the associated phase — change the white-noise gain and the realised directivity. Treat Mesh2HRTF TFs below a few hundred hertz with extra regularisation, or cross-check that band with another solver, before freezing weights.
 
