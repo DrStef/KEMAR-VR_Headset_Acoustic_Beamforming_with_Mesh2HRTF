@@ -36,7 +36,7 @@ Notebooks will be added
 
 Can a free Burton–Miller + FMM solver (Mesh2HRTF / NumCalc) replace a
 closed BEM code for array design on a dummy + headset in the
-$100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$ AR/VR band?
+$100\,\mathrm{Hz}$ – $8\,\mathrm{kHz}$ AR/VR band?
 
 This repo publishes the meshes, the transfer functions, and example
 MVDR patterns. The optimiser is not included. White-noise gain is
