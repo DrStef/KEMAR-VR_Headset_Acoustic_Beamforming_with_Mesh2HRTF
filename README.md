@@ -314,7 +314,7 @@ We scanned 5, 2 and 1 mm on +x anyway.
 
 We compare two fields that reciprocity says should agree closely:
 
-- the analytical rigid-sphere scattering of a plane wave (Morse []);
+- the analytical rigid-sphere scattering of a plane wave (Morse [4]);
 - a Mesh2HRTF / NumCalc BEM run with a point source $2 \mathrm{mm}$ outside the skin, pressure sampled at $r = 10 \mathrm{m}$ from $0^\circ$ to $180^\circ$ in a meridional plane.
 
 The two problems are not identical, but the far-field patterns should match. They do, to a fraction of a decibel over most of the $100 \mathrm{Hz}-8\mathrm{kHz}$ band.
