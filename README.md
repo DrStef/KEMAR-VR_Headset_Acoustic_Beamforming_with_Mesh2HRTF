@@ -365,7 +365,8 @@ The Wiki guideline suggests a source standoff $\geq 0.3 \mathrm{mm}$ outside the
 
 Source standoff matters for microphone-array design. We want a compromise that still yields usable microphone-to-field transfer functions for beamforming: close enough for a surface microphone, far enough from the singular kernel.
 
-
+The Mesh2HRTF wiki asks for at least 0.3 mm outside the skin. Kreuzer prefers about one mean edge (~7.5 mm) to stay off the singular kernel.
+We scanned 5, 2 and 1 mm on +x anyway. 
 
 We compare two fields that reciprocity says should agree closely:
 
@@ -400,25 +401,7 @@ At 1 mm the match to the analytical model (Morse) is excellent below 500 Hz. The
 
 </div>
 
-
-
-At $ka \approx 0.1$ the Mesh2HRTF far-field samples at $r = 10 \mathrm{m}$ are:
-
-<div align="center">
-
-| Angle | $\|p\|$ | Level re $0^\circ$ |
-|---|---|---|
-| $0^\circ$ | $1.0212\times 10^{-1}$ | $0.00 \mathrm{dB}$ |
-| $30^\circ$ | $1.0161\times 10^{-1}$ | $-0.04 \mathrm{dB}$ |
-| $60^\circ$ | $1.0044\times 10^{-1}$ | $-0.14 \mathrm{dB}$ |
-| $90^\circ$ | $9.9313\times 10^{-2}$ | $-0.24 \mathrm{dB}$ |
-| $120^\circ$ | $9.8742\times 10^{-2}$ | $-0.29 \mathrm{dB}$ |
-| $150^\circ$ | $9.8670\times 10^{-2}$ | $-0.30 \mathrm{dB}$ |
-
-</div>
-
-At 2 mm, far field at 10 m, ka ≈ 0.18 (100 Hz):
-
+At 2 mm and $ka \approx 0.18$ (100 Hz) the Mesh2HRTF far-field samples at $r = 10 \mathrm{m}$ are:
 <div align="center">
 
 | Angle | \|p\| | re 0° |
@@ -433,11 +416,13 @@ At 2 mm, far field at 10 m, ka ≈ 0.18 (100 Hz):
 </div>
 
 Spread 0.30 dB. Morse (and a mature BEM) is flat at this ka. The tilt is numerical: collocation / quadrature, not the 10 m station.
-Cluster edge 0, 0.05 and 0.3 m, and traditional BEM, did not remove it. Around ka = 10 the on-axis level sags by about 0.2 dB.
+Cluster edge 0, 0.05 and 0.1 m, and traditional BEM, did not remove it. Around ka = 10 the on-axis level sags by about 0.2 dB.
+
+At 5 mm the low-frequency deviation is worse than at 2 mm. At 2 mm the high-frequency baffle step is near 6 dB, with a 0.30 dB front-to-back tilt at ka ≈ 0.18 (table above). At 1 mm that tilt collapses onto Morse below 500 Hz, but the curves
+depart above 1 kHz and stall near 5.2 dB above 4–5 kHz.
 
 Working compromise for array transfer functions: 2–2.5 mm off the skin. Close enough for a surface microphone, far enough to keep the 6 dB step.
 The 1 mm run is the low-frequency check; it will not be used on the headset.
-
 
 
 
