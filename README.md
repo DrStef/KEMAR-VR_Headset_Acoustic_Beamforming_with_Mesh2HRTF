@@ -369,10 +369,24 @@ We compare two fields that reciprocity says should agree closely:
 
 The two problems are not identical, but the far-field patterns should match. They do, to a fraction of a decibel over most of the $100 \mathrm{Hz}-8\mathrm{kHz}$ band.
 
+<div align="center">
 
-|<p align="center"> <img src="./pictures/Sphere_PresPlaneWav_001.png" alt="Sphere validation" width="80%">  </p>  |<p align="center"> <img src="./pictures/Sphere_TFs_FarField_001.png" alt="Sphere validation" width="90%">  </p> |
+|<p align="center"> <img src="./pictures/Sphere_PresPlaneWav_001.png" alt="Sphere validation" width="80%">  </p>  |<p align="center"> <img src="./pictures/ICO_Sphere_TFs_FarField_2mm.png" alt="Sphere validation" width="90%">  </p> |
 |                              ---                                               |  -----   |
 | <p align="center"> <i> Analytical Model - Sound pressure on the sphere <br> Plane  z=0  - Various angles </i> </p>   |    <p align="center"> <i> mshr2HSRTF BEM Model - Sound pressure at 10 m  <br> Plane  z=0  - Various angles </i>        </p>              |
+
+</div>
+
+
+
+<div align="center">
+
+|<p align="center"> <img src="./pictures/Sphere_PresPlaneWav_001.png" alt="Sphere validation" width="80%">  </p>  |<p align="center"> <img src="./pictures/ICO_Sphere_TFs_FarField_1mm.png" alt="Sphere validation" width="90%">  </p> |
+|                              ---                                               |  -----   |
+| <p align="center"> <i> Analytical Model - Sound pressure on the sphere <br> Plane  z=0  - Various angles </i> </p>   |    <p align="center"> <i> mshr2HSRTF BEM Model - Sound pressure at 10 m  <br> Plane  z=0  - Various angles </i>        </p>              |
+
+</div>
+
 
 At $ka \approx 0.1$ the Mesh2HRTF far-field samples at $r = 10 \mathrm{m}$ are:
 
