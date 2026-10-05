@@ -34,14 +34,9 @@ Notebooks will be added
 
 ## Overview
 
-Can a free Burton–Miller + FMM solver (Mesh2HRTF / NumCalc) replace a
-closed BEM code for array design on a dummy + headset in the
-$100 \mathrm{Hz}$ – $8 \mathrm{kHz}$ AR/VR band?
+Can a free Burton–Miller + FMM solver (Mesh2HRTF / NumCalc) replace a closed BEM code for array design on a dummy + headset in the $100 \mathrm{Hz}$ – $8 \mathrm{kHz}$ AR/VR band?
 
-This repo publishes the meshes, the transfer functions, and example
-MVDR patterns. The optimiser is not included. White-noise gain is
-floored at $-25 \mathrm{dB}$ below $500 \mathrm{Hz}$, then ramps to
-$-30 \mathrm{dB}$ above $1 \mathrm{kHz}$.
+This repo publishes the meshes, the transfer functions, and example MVDR patterns. The optimiser is not included. White-noise gain is floored at $-25 \mathrm{dB}$ below $500 \mathrm{Hz}$, then ramps to $-30 \mathrm{dB}$ above $1 \mathrm{kHz}$.
 
 **Part II** (this page, first) — KEMAR-style dummy + generic VR headset, four reciprocal point sources on a $2.5 \mathrm{cm}$ line, far-field TFs toward $\mathbf{r}=(1,0,0) \mathrm{m}$, boundary $|p|$, planar beampattern, DI and WNG.
 
@@ -82,8 +77,7 @@ Mesh2HRTF / NumCalc started at ARI (ÖAW, Vienna) with Harald Ziegelwanger, Wolf
 High-resolution geometry of a KEMAR-style head integrated with a **generic** VR headset.  
 Used as the domain for **open-source BEM** (Mesh2HRTF / NumCalc) to compute microphone transfer functions.
 This is an in-house concept mesh for open BEM (Mesh2HRTF / NumCalc).
-It is **not** a vendor product and is **not** affiliated with any commercial
-VR headset.
+It is **not** a vendor product and is **not** affiliated with any commercial VR headset.
 
 #### Head and torso
 
@@ -96,12 +90,9 @@ KEMAR-style dummy CAD developed at **ICAR**
 A high-quality generic VR-headset CAD by **Chris Leung** on GrabCAD:
 https://grabcad.com/chris.leung-5/models
 
-The headset was simplified and edited: the headband was extended around the head, and reduced to about
-$5–6 \mathrm{cm}$ width. The edited headset was then merged with the
-KEMAR-style dummy into a single watertight skin.
+The headset was simplified and edited: the headband was extended around the head, and reduced to about $5–6 \mathrm{cm}$ width. The edited headset was then merged with the KEMAR-style dummy into a single watertight skin.
 
-The working file distributed here is an **STL** surface mesh (plus the
-Mesh2HRTF `ObjectMeshes` export).
+The working file distributed here is an **STL** surface mesh (plus the Mesh2HRTF `ObjectMeshes` export).
 
 <div align="center">
 
@@ -142,9 +133,7 @@ Four reciprocal point sources sit $2 \mathrm{mm}$ off the skin on the right side
 The design look is the $1 \mathrm{m}$ station $\mathbf{r}=(1,0,0)\,\mathrm{m}$ ($+x$, nose). The beam is **fixed frontal**: one steering vector toward that point.
 The rest of the $\sim 1850$-point unit sphere is only used to plot the pattern and to build the isotropic covariance.
 
-Against a reference FEM/BEM run, magnitude stays within about $0.2 \mathrm{dB}$; phase matches after the $e^{\pm j\omega t}$
-convention (`-angle` on NumCalc). MVDR uses these TFs with a WNG floor of $-25 \mathrm{dB}$ below $500 \mathrm{Hz}$, ramping to $-30 \mathrm{dB}$
-above $1 \mathrm{kHz}$
+Against a reference FEM/BEM run, magnitude stays within about $0.2 \mathrm{dB}$; phase matches after the $e^{\pm j\omega t}$ convention (`-angle` on NumCalc). MVDR uses these TFs with a WNG floor of $-25 \mathrm{dB}$ below $500 \mathrm{Hz}$, ramping to $-30 \mathrm{dB}$ above $1 \mathrm{kHz}$
 
 
 <div align="center">
@@ -172,32 +161,22 @@ Seats and standoff are those of §2.
 
 </div>
 
-Below $400 \mathrm{Hz}$, mic\_1 and mic\_2 sit about $0.2 \mathrm{dB}$
-off a reference FEM/BEM run — the same low $ka$ bias as on the rigid sphere in Part I.
-That mismatch is enough to wrinkle a superdirective MVDR. The WNG floor
-in the next section, is there so the weights follow the physics, not the solver noise.
+Below $400 \mathrm{Hz}$, mic\_1 and mic\_2 sit about $0.2 \mathrm{dB}$ off a reference FEM/BEM run — the same low $ka$ bias as on the rigid sphere in Part I.
+That mismatch is enough to wrinkle a superdirective MVDR. The WNG floor in the next section, is there so the weights follow the physics, not the solver noise.
 
 ---
 
 ### 4. Computation of MVDR beamforming weights — DI and WNG
 
-The four TFs at $\mathbf{r}_{\mathrm{look}}=(1,0,0)\,\mathrm{m}$ form the
-steering vector $\mathbf{d}(f)$. The noise field is taken **isotropic**:
-the covariance $\Gamma(f)$ is the Gram matrix of the TFs on the $1 \mathrm{m}$
-evaluation sphere. Standard MVDR ($\mathbf{w}^H\mathbf{d}=1$) is then
-diagonally loaded until the white-noise gain stays above $-25 \mathrm{dB}$.
+The four TFs at $\mathbf{r}_{\mathrm{look}}=(1,0,0)\,\mathrm{m}$ form the steering vector $\mathbf{d}(f)$. The noise field is taken **isotropic**:
+the covariance $\Gamma(f)$ is the Gram matrix of the TFs on the $1 \mathrm{m}$ evaluation sphere. Standard MVDR ($\mathbf{w}^H\mathbf{d}=1$) is then diagonally loaded until the white-noise gain stays above $-25 \mathrm{dB}$.
 
-That floor is a robustness knob, not a performance target. It keeps
-$w_{\mathrm{opt}}(f)$ smooth below $500 \mathrm{Hz}$, where Mesh2HRTF
-is about $0.2 \mathrm{dB}$ off a reference solver, and it stops the
-beam from fitting solver noise. Directivity index (DI) and the
-*realised* WNG are plotted against frequency for the same weights.
+That floor is a robustness knob, not a performance target. It keeps $w_{\mathrm{opt}}(f)$ smooth below $500 \mathrm{Hz}$, where Mesh2HRTF is about $0.2 \mathrm{dB}$ off a reference solver, and it stops the beam from fitting solver noise. Directivity index (DI) and the *realised* WNG are plotted against frequency for the same weights.
 
 Note: For an $N$-element array in an ideal **free-field** environment, the theoretical maximum directivity index approaches $10 \log_{10}(N^2) \approx 12 dB$, while the maximum white-noise gain scales as $10 \log_{10}(N) \approx 6 dB$ (see, e.g., Gary W. Elko's foundational chapters on microphone array spatial filtering in Digital Signal Processing Handbook).
 
 
-The linear algebra is in the Appendix. The optimiser itself is not
-published; the TFs and the example patterns are.
+The linear algebra is in the Appendix. The optimiser itself is not published; the TFs and the example patterns are.
 
 
 <div align="center">
@@ -250,13 +229,11 @@ Project files (`NC.inp`, skin, $1 \mathrm{m}$ grid) live in `KemarVR_bem/`. <br>
 
 At a fixed frequency the BEM unknown is the boundary field.
 NumCalc assembles a square *self-influence* matrix $A(k)$ from the Helmholtz kernel on this skin (KEMAR + headset). $A$ depends on geometry and on frequency $k=\omega/c$ only --- not on where the point source sits. The source position appears in the right-hand side $b(k)$.
-Four seats should therefore be four $b$'s and **one** factorisation
-of $A(k)$. Today each `source_*` folder still rebuilds $A$.
+Four seats should therefore be four $b$'s and **one** factorisation of $A(k)$. Today each `source_*` folder still rebuilds $A$. 
 $A$ cannot be reused from one frequency to the next.
 
 Parameters: 
-$c=346.18 \mathrm{m/s}$, FMM cluster $0.05 \mathrm{m}$,
-standoff $2 \mathrm{mm}$: see `NC.inp`.
+$c=346.18 \mathrm{m/s}$, FMM cluster $0.05 \mathrm{m}$, standoff $2 \mathrm{mm}$: see `NC.inp`.
 
 
 NumCalc is a Unix binary. On Windows, install **WSL2** with Ubuntu 22.04 and open that terminal (not PowerShell). <br>
@@ -266,11 +243,6 @@ In the Ubuntu window:
 cd KemarVR_bem/NumCalc
 ./NumCalc
 ```
-
----
-
-
-
 
 <br>
 <br> 
@@ -285,13 +257,11 @@ To establish numerical tolerances and build trust in our BEM workflow, we valida
 
 Evaluations span $100 \mathrm{Hz}$ to $8 \mathrm{kHz}$ with pressure magnitude $\vert{}p\vert{}$ reported across meridional angles ($0^\circ$ to $180^\circ$).
 
-We compare two related but distinct problems that should agree closely
-on the rigid-sphere boundary and, by reciprocity, at far-field points
+We compare two related but distinct problems that should agree closely on the rigid-sphere boundary and, by reciprocity, at far-field points
 at $r = 10 \mathrm{m}$:
 
 - analytical scattering of a plane wave (Morse);
-- a point source placed a few millimetres outside the skin (Mesh2HRTF / NumCalc),
-  used as a reciprocal stand-in for a surface microphone.
+- a point source placed a few millimetres outside the skin (Mesh2HRTF / NumCalc),   used as a reciprocal stand-in for a surface microphone.
 
 $|p|$ is reported on the unit sphere at $0^\circ, 30^\circ, 60^\circ, 90^\circ, 120^\circ, 150^\circ, 180^\circ$.
 Overall the match is excellent from $100 \mathrm{Hz}$ to $8 \mathrm{kHz}$
@@ -318,11 +288,8 @@ $0.2 \mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6 - 8 \mathrm{kHz}$ �
 
 #### Solver Engine (NumCalc)
 
-NumCalc solves the Helmholtz equation with a **Burton–Miller collocation BEM**.
-Optionally the **multilevel fast multipole method (ML-FMM)** replaces
-element-to-element coupling by cluster-to-cluster coupling.
-We used ML-FMM (cluster diameter 0.05 m). Changing it to 0.025 m did not
-change the look-direction TFs on this mesh.
+NumCalc solves the Helmholtz equation with a **Burton–Miller collocation BEM**. Optionally the **multilevel fast multipole method (ML-FMM)** replaces element-to-element coupling by cluster-to-cluster coupling.
+We used ML-FMM (cluster diameter 0.05-0.1 m). 
 
 NumCalc solves the Helmholtz equation using a **Burton–Miller collocation BEM**, optionally accelerated by the **Multilevel Fast Multipole Method (ML-FMM)** for cluster-to-cluster coupling. 
 - *Working configuration:* ML-FMM with a cluster diameter of $0.05 \mathrm{m}$ (changing this to $0.025 \mathrm{m}$ showed no noticeable change on the look-direction transfer function).
