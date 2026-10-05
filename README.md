@@ -362,6 +362,11 @@ The Wiki guideline suggests a source standoff $\geq 0.3 \mathrm{mm}$ outside the
 
 ### 4. Results and residual discrepancies
 
+
+Source standoff matters for microphone-array design. We want a compromise that still yields usable microphone-to-field transfer functions for beamforming: close enough for a surface microphone, far enough from the singular kernel.
+
+
+
 We compare two fields that reciprocity says should agree closely:
 
 - the analytical rigid-sphere scattering of a plane wave (Morse []);
@@ -374,7 +379,6 @@ The two problems are not identical, but the far-field patterns should match. The
 
 **Point source 1 mm off the surface**
 
-
 <div align="center">
 
 |<p align="center"> <img src="./pictures/Sphere_PresPlaneWav_001.png" alt="Sphere validation" width="80%">  </p>  |<p align="center"> <img src="./pictures/ICO_Sphere_TFs_FarField_1mm.png" alt="Sphere validation" width="90%">  </p> |
@@ -382,6 +386,8 @@ The two problems are not identical, but the far-field patterns should match. The
 | <p align="center"> <i> Analytical Model - Sound pressure on the sphere <br> Plane  z=0  - Various angles </i> </p>   |    <p align="center"> <i> mshr2HSRTF BEM Model - Sound pressure at 10 m  <br> 1-mm Point source - Plane  z=0  - Various angles </i>        </p>              |
 
 </div>
+
+At 1 mm the match to the analytical model (Morse) is excellent below 500 Hz. The numerical curves depart from the analytical model above 1 kHz, and are inaccurate above 4–5 kHz (on axis the level stalls near 5.2 dB instead of the 6 dB baffle step).
 
 
 **Point source 2 mm off the surface**
@@ -411,15 +417,29 @@ At $ka \approx 0.1$ the Mesh2HRTF far-field samples at $r = 10 \mathrm{m}$ are:
 
 </div>
 
-The magnitude spread is **$0.30 \mathrm{dB}$**. The analytical plane-wave solution (and the reference BEM) is essentially isotropic at this $ka$. The bias is therefore numerical: Burton–Miller collocation and FMM / quadrature at low frequency, not the $2 \mathrm{mm}$ standoff and not the $10 \mathrm{m}$ station.
+At 2 mm, far field at 10 m, ka ≈ 0.18 (100 Hz):
 
-**Low frequency** ($50–100 \mathrm{Hz}$, $ka \approx 0.1 – 0.2$).  
-The analytical field is essentially isotropic ($\sim 0 \mathrm{dB}$ spread across angles).
-Mesh2HRTF shows a slightly larger magnitude variance, about $0.3–0.4 \mathrm{dB}$.
+<div align="center">
 
-**High frequency** (around \(ka = 10\)).  
-On the illuminated side ($0^\circ$ and $30^\circ$) the computed amplitude sags by about $0.2 \mathrm{dB}$.
-The same droop appears in other Mesh2HRTF validations. Likely causes are the Burton–Miller discretisation, FMM clustering, and/or the quadrature — not the geometry itself.
+| Angle | \|p\| | re 0° |
+|---|---|---|
+| 0° | 1.0212e-1 | 0.00 dB |
+| 30° | 1.0161e-1 | −0.04 dB |
+| 60° | 1.0044e-1 | −0.14 dB |
+| 90° | 9.9313e-2 | −0.24 dB |
+| 120° | 9.8742e-2 | −0.29 dB |
+| 150° | 9.8670e-2 | −0.30 dB |
+
+</div>
+
+Spread 0.30 dB. Morse (and a mature BEM) is flat at this ka. The tilt is numerical: collocation / quadrature, not the 10 m station.
+Cluster edge 0, 0.05 and 0.3 m, and traditional BEM, did not remove it. Around ka = 10 the on-axis level sags by about 0.2 dB.
+
+Working compromise for array transfer functions: 2–2.5 mm off the skin. Close enough for a surface microphone, far enough to keep the 6 dB step.
+The 1 mm run is the low-frequency check; it will not be used on the headset.
+
+
+
 
 **Parameters that do *not* move the look-direction TF.**  
 FMM cluster diameter $0.05 \mathrm{m}$ vs $0.025 \mathrm{m}$ has no significant effect
