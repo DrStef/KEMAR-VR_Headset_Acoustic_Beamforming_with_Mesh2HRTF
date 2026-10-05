@@ -395,10 +395,9 @@ More mature commercial BEM codes pass the $ka \approx 0.1$ test to a few hundred
 
 That matters for **low-frequency array design**. In a superdirective beamformer (MVDR, LCMV) a few tenths of a dB of false magnitude — and the associated phase — change the white-noise gain and the realised directivity. Treat Mesh2HRTF TFs below a few hundred hertz with extra regularisation, or cross-check that band with another solver, before freezing weights.
 
-<br>
-<br>
+---
 
-### 5. How to run the simulation. 
+### 6. How to run the simulation. 
 
 NumCalc is a Unix binary. On Windows, install **WSL2** with Ubuntu 22.04 and open that terminal (not PowerShell). <br>
 In the Ubuntu window:
