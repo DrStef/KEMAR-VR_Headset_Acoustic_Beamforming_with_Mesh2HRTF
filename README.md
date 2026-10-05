@@ -43,36 +43,32 @@ MVDR patterns. The optimiser is not included. White-noise gain is
 floored at $-25 \mathrm{dB}$ below $500 \mathrm{Hz}$, then ramps to
 $-30 \mathrm{dB}$ above $1 \mathrm{kHz}$.
 
-**Part II** (this page, first) — KEMAR-style dummy + generic VR headset,
-four reciprocal point sources on a $2.5 \mathrm{cm}$ line, far-field
-TFs toward $\mathbf{r}=(1,0,0) \mathrm{m}$, boundary $|p|$, planar
-beampattern, DI and WNG.
+**Part II** (this page, first) — KEMAR-style dummy + generic VR headset, four reciprocal point sources on a $2.5 \mathrm{cm}$ line, far-field TFs toward $\mathbf{r}=(1,0,0) \mathrm{m}$, boundary $|p|$, planar beampattern, DI and WNG.
 
-**Part I** — rigid sphere $a=0.10 \mathrm{m}$, Ico-4 versus Morse,
-point source $2 \mathrm{mm}$ off the skin, observers at $10 \mathrm{m}$.
+**Part I** — rigid sphere $a=0.10 \mathrm{m}$, Ico-4 versus Morse, point source $2 \mathrm{mm}$ off the skin, observers at $10 \mathrm{m}$.
 That run fixes units, standoff, and trust in NumCalc.
 
-**Part III** (later) — near-field beamforming, three vertical microphones.
+**Part III** (later) — near-field beamforming, with three vertical microphones.
+
+**Part IV** (later) —far-field beamforming, planar 3+3 microphone array.
 
 **Links**
-- Company: [bloo-audio.com/array51](https://www.bloo-audio.com/array51)
+- Company CAD-BEM model: [bloo-audio.com/array51](https://www.bloo-audio.com/array51)
 - Solver: [Mesh2HRTF / NumCalc](https://github.com/Any2HRTF/Mesh2HRTF)
 - Solver parameters: [NumCalc](https://github.com/Any2HRTF/Mesh2HRTF/wiki/NumCalc)
 - Structure of input file: [NC.inp](https://github.com/Any2HRTF/Mesh2HRTF/wiki/Structure_of_NC.inp)
 
 ## Acknowledgements
 
-Mesh2HRTF / NumCalc started at ARI (ÖAW, Vienna) with Harald
-Ziegelwanger, Wolfgang Kreuzer and Piotr Majdak, and continues with
-Fabian Brinkmann (TU Berlin) and Katharina Pollack (ARI).
+Mesh2HRTF / NumCalc started at ARI (ÖAW, Vienna) with Harald Ziegelwanger, Wolfgang Kreuzer and Piotr Majdak, and continues with Fabian Brinkmann (TU Berlin) and Katharina Pollack (ARI).
 <https://github.com/Any2HRTF/Mesh2HRTF>
 
 ### Key References
 
-- Ziegelwanger, Majdak, Kreuzer, *"Numerical calculation of head-related transfer functions: A review"* — **J. Acoust. Soc. Am.**, 2015.
-- Brinkmann et al., *"A Blender-Based Open-Source Pipeline for Head-Related Transfer Function Calculation"* — **J. Audio Eng. Soc.**, 2023.
-- Kreuzer et al., *"An open-source boundary element method solver for acoustics"* — **Eng. Anal. Bound. Elem.**, 2024 (Burton–Miller + FMM).
-- Morse & Ingard, *Theoretical Acoustics*, McGraw-Hill / Princeton University Press, 1968/1986.
+- [1] Ziegelwanger, Majdak, Kreuzer, *"Numerical calculation of head-related transfer functions: A review"* — **J. Acoust. Soc. Am.**, 2015.
+- [2] Brinkmann et al., *"A Blender-Based Open-Source Pipeline for Head-Related Transfer Function Calculation"* — **J. Audio Eng. Soc.**, 2023.
+- [3] Kreuzer et al., *"An open-source boundary element method solver for acoustics"* — **Eng. Anal. Bound. Elem.**, 2024 (Burton–Miller + FMM).
+- [4] Morse & Ingard, *Theoretical Acoustics*, McGraw-Hill / Princeton University Press, 1968/1986.
 
 <br>
 <br>
