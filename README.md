@@ -408,7 +408,7 @@ cd ..../ICO_Sphere_HD20cm_sol10m_point_source_v1/NumCalc/source_1
 ```
 160 frequencies: 50:50:8000
 
-
+---
 
 
 ## References
