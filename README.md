@@ -263,8 +263,7 @@ $c=346.18 \mathrm{m/s}$, FMM cluster $0.05 \mathrm{m}$,
 standoff $2 \mathrm{mm}$: see `NC.inp`.
 
 
-NumCalc is a Unix binary. On Windows, install **WSL2** with Ubuntu
-22.04 and open that terminal (not PowerShell). <br>
+NumCalc is a Unix binary. On Windows, install **WSL2** with Ubuntu 22.04 and open that terminal (not PowerShell). <br>
 In the Ubuntu window:
 
 ```bash
@@ -342,25 +341,7 @@ NumCalc solves the Helmholtz equation using a **Burton–Miller collocation BEM*
 
 ---
 
-### 3. Point-Source Standoff Tuning
-
-The Wiki guideline suggests a source standoff $\geq 0.3 \mathrm{mm}$ outside the skin, while Kreuzer recommends approximately one mean edge length. We scanned **$5 \mathrm{mm}$, $2 \mathrm{mm}$, and $1 \mathrm{mm}$** along the $+x$ axis:
-
-<div align="center">
-
-| Standoff | $x$-position | High-Frequency Behavior | Low-Frequency Behavior |
-| :---: | :---: | :--- | :--- |
-| **$5\,\mathrm{mm}$** | $0.105 \mathrm{m}$ | Drop above $5 \mathrm{kHz}$ ($0^\circ$ and $30^\circ$) | Good |
-| **$2\,\mathrm{mm}$** | $0.102 \mathrm{m}$ | **Best**, near $6 \mathrm{dB}$ baffle step | Good |
-| **$1\,\mathrm{mm}$** | $0.101 \mathrm{m}$ | Crushed above $3 \mathrm{kHz}$ ($\approx 5.5 \mathrm{dB}$ at $7 - 8 \mathrm{kHz}$) | Best LF collapse to $0 \mathrm{dB}$ |
-
-</div>
-
-> **Working Choice:** **$2 \mathrm{mm}$**. This exact offset is carried over later for the VR headset microphone positions.
-
----
-
-### 4. Results and residual discrepancies
+### 3. Results and residual discrepancies
 
 
 Source standoff matters for microphone-array design. We want a compromise that still yields usable microphone-to-field transfer functions for beamforming: close enough for a surface microphone, far enough from the singular kernel.
@@ -424,19 +405,20 @@ depart above 1 kHz and stall near 5.2 dB above 4–5 kHz.
 Working compromise for array transfer functions: 2–2.5 mm off the skin. Close enough for a surface microphone, far enough to keep the 6 dB step.
 The 1 mm run is the low-frequency check; it will not be used on the headset.
 
+---
+### 4. Parameters
 
+Three solvers were tried on the same sphere and the same 2 mm source:  ML-FMM (`4`), SL-FMM (`1`), and traditional BEM (`0`).
+Cluster edge 0, 0.05 and 0.3 m (radius capped at 0.1 m by the mesh) did not move the look-direction TF. The 0.3 dB deviation at ka ≈ 0.18 is not an FMM setting.
 
-**Parameters that do *not* move the look-direction TF.**  
-FMM cluster diameter $0.05 \mathrm{m}$ vs $0.025 \mathrm{m}$ has no significant effect
-on this Ico-5 mesh.
+What does move it is the standoff. 5 / 2 / 1 mm on +x:
+5 mm is worse at low frequency and drops above 5 kHz;
+2 mm keeps the baffle step; 1 mm matches Morse below 500 Hz
+and sags above 1 kHz. Working choice: 2–2.5 mm.
 
-**Parameter that *does* matter.**  
-Point-source standoff from the skin. After a $5 / 2 / 1\,\mathrm{mm}$ scan on $+x$, **$2 \mathrm{mm}$** is the working choice (clean high-frequency baffle step, acceptable low-frequency collapse). The same offset is used later for headset microphone positions.
-
-
-- **Mesh Topology (Ico vs. UV):** Elongated polar triangles on UV meshes distort low frequencies ($100 \mathrm{Hz}$) and pole calculations; Ico triangulation avoids this entirely.
-- **Piston vs. Point Sources:** A piston radiator requires area factor $S$, whereas a point source uses $P_0 = 1$ (i.e., $\frac{e^{ikR}}{4\pi R}$). At $1 \mathrm{m}$, $20\log_{10}(4\pi) \approx +22 \mathrm{dB}$ is required to reach $1 \mathrm{Pa}$.
-- **High-Frequency Discretization:** At $8 \mathrm{kHz}$, the mesh is slightly coarser than $\lambda/6$ ($\approx\lambda/5.75$). Burton–Miller collocation requires adequate elements per wavelength at high $ka$, meaning the minor $\sim 0.2 \mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6\text{–}8 \mathrm{kHz}$ stems from numerical quadrature rather than geometry error. (A 5-subdivision mesh with $20\,480$ faces would push $\lambda/6$ past $8 \mathrm{kHz}$).
+Ico mesh, not UV: polar triangles on a UV sphere distort 100 Hz and the poles.
+A piston needs the area factor S. A point source is P0 = 1, i.e. e^{ikR}/(4πR). At 1 m, 20 log10(4π) ≈ +22 dB to reach 1 Pa.
+At 8 kHz the edge is about λ/6. A node-centred source, as in some FEM codes, is not available in NumCalc; the standoff is the practical substitute.
 
 ---
 
@@ -452,6 +434,26 @@ That matters for **low-frequency array design**. In a superdirective beamformer 
 
 <br>
 <br>
+
+### 5. How to run the simulation. 
+
+NumCalc is a Unix binary. On Windows, install **WSL2** with Ubuntu 22.04 and open that terminal (not PowerShell). <br>
+In the Ubuntu window:
+
+```bash
+cd /ICO_Sphere_HD20cm_sol10m_point_source_v1/NumCalc/source_1
+./NumCalc
+```
+
+
+
+
+
+
+
+
+
+
 
 ## References
 
