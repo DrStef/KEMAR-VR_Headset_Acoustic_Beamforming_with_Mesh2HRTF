@@ -441,16 +441,10 @@ NumCalc is a Unix binary. On Windows, install **WSL2** with Ubuntu 22.04 and ope
 In the Ubuntu window:
 
 ```bash
-cd /ICO_Sphere_HD20cm_sol10m_point_source_v1/NumCalc/source_1
-/Mesh2HRTF-1.3.0/mesh2hrtf/NumCalc/bin/NumCalc   -istart 1  -iend 160  -nitermax 500
+cd ..../ICO_Sphere_HD20cm_sol10m_point_source_v1/NumCalc/source_1
+..../Mesh2HRTF-1.3.0/mesh2hrtf/NumCalc/bin/NumCalc   -istart 1  -iend 160  -nitermax 500
 ```
 160 frequencies: 50:50:8000
-
-
-
-
-
-
 
 
 
