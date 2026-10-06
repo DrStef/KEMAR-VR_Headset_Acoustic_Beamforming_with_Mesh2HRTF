@@ -256,16 +256,13 @@ To establish numerical tolerances and build trust in our BEM workflow, we valida
 - **Analytical scattering** of a plane wave (Morse & Ingard solution).
 - **Reciprocal point source** placed a few millimeters outside the skin (Mesh2HRTF / NumCalc), acting as a stand-in for a surface microphone.
 
-Evaluations span $100 \mathrm{Hz}$ to $8 \mathrm{kHz}$ with pressure magnitude $\vert{}p\vert{}$ reported across meridional angles ($0^\circ$ to $180^\circ$).
+Evaluations span $50 \mathrm{Hz}$ to $8 \mathrm{kHz}$ with pressure magnitude $\vert{}p\vert{}$ reported across meridional angles ($0^\circ$ to $180^\circ$).
 
 We compare two related but distinct problems that should agree closely on the rigid-sphere boundary and, by reciprocity, at far-field points
 at $r = 10 \mathrm{m}$:
 
-- analytical scattering of a plane wave (Morse);
-- a point source placed a few millimetres outside the skin (Mesh2HRTF / NumCalc),   used as a reciprocal stand-in for a surface microphone.
-
 $|p|$ is reported on the unit sphere at $0^\circ, 30^\circ, 60^\circ, 90^\circ, 120^\circ, 150^\circ, 180^\circ$.
-Overall the match is excellent from $100 \mathrm{Hz}$ to $8 \mathrm{kHz}$
+Overall the match is excellent from $50 \mathrm{Hz}$ to $8 \mathrm{kHz}$
 
 ---
 
@@ -292,8 +289,6 @@ $0.2 \mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6 - 8 \mathrm{kHz}$ �
 NumCalc solves the Helmholtz equation with a **Burton–Miller collocation BEM**. Optionally the **multilevel fast multipole method (ML-FMM)** replaces element-to-element coupling by cluster-to-cluster coupling.
 We used ML-FMM (cluster diameter 0.05-0.1 m). 
 
-NumCalc solves the Helmholtz equation using a **Burton–Miller collocation BEM**, optionally accelerated by the **Multilevel Fast Multipole Method (ML-FMM)** for cluster-to-cluster coupling. 
-- *Working configuration:* ML-FMM with a cluster diameter of $0.05 \mathrm{m}$ (changing this to $0.025 \mathrm{m}$ showed no noticeable change on the look-direction transfer function).
 
 <div align="center">
 
@@ -312,16 +307,6 @@ Source standoff matters for microphone-array design. We want a compromise that s
 
 The Mesh2HRTF wiki asks for at least 0.3 mm outside the skin. Kreuzer prefers about one mean edge (~7.5 mm) to stay off the singular kernel.
 We scanned 5, 2 and 1 mm on +x anyway. 
-
-We compare two fields that reciprocity says should agree closely:
-
-- the analytical rigid-sphere scattering of a plane wave (Morse [4]);
-- a Mesh2HRTF / NumCalc BEM run with a point source $2 \mathrm{mm}$ outside the skin, pressure sampled at $r = 10 \mathrm{m}$ from $0^\circ$ to $180^\circ$ in a meridional plane.
-
-The two problems are not identical, but the far-field patterns should match. They do, to a fraction of a decibel over most of the $100 \mathrm{Hz}-8\mathrm{kHz}$ band.
-
-
-
 
 **Point source 1 mm off the surface**
 
@@ -360,14 +345,15 @@ At 2 mm and $ka \approx 0.18$ (100 Hz) the Mesh2HRTF far-field samples at $r = 1
 
 </div>
 
-Spread 0.30 dB. Morse (and a mature BEM) is flat at this ka. The tilt is numerical: collocation / quadrature, not the 10 m station.
+Spread 0.30 dB. Morse (and a mature BEM) is flat at this ka. The deviation is numerical: collocation / quadrature, not the 10 m station.
 Cluster edge 0, 0.05 and 0.1 m, and traditional BEM, did not remove it. Around ka = 10 the on-axis level sags by about 0.2 dB.
 
-At 5 mm the low-frequency deviation is worse than at 2 mm. At 2 mm the high-frequency baffle step is near 6 dB, with a 0.30 dB front-to-back tilt at ka ≈ 0.18 (table above). At 1 mm that tilt collapses onto Morse below 500 Hz, but the curves
-depart above 1 kHz and stall near 5.2 dB above 4–5 kHz.
+At 5 mm the low-frequency deviation is worse than at 2 mm. <br>
+At 2 mm the high-frequency baffle step is near 6 dB with a slight attenuation at 0° and 30° above 6 kHz. Main issue is the 0.30 dB magnitude spread at ka ≈ 0.18 (table above). <br>
+At 1 mm that deviation collapses onto Morse below 500 Hz, but the curves depart above 1 kHz and stall near 5.2 dB above 4–5 kHz.
 
-Working compromise for array transfer functions: 2–2.5 mm off the skin. Close enough for a surface microphone, far enough to keep the 6 dB step.
-The 1 mm run is the low-frequency check; it will not be used on the headset.
+**Working compromise for array transfer functions**: **2–2.5 mm off the skin**. Close enough for a surface microphone, far enough to keep the 6 dB step.
+The 1 mm run is the low-frequency check; it will not be used on the Kemar+VR headset model.
 
 ---
 ### 4. Parameters
@@ -375,26 +361,21 @@ The 1 mm run is the low-frequency check; it will not be used on the headset.
 Three solvers were tried on the same sphere and the same 2 mm source:  ML-FMM (`4`), SL-FMM (`1`), and traditional BEM (`0`).
 Cluster edge 0, 0.05 and 0.3 m (radius capped at 0.1 m by the mesh) did not move the look-direction TF. The 0.3 dB deviation at ka ≈ 0.18 is not an FMM setting.
 
-What does move it is the standoff. 5 / 2 / 1 mm on +x:
-5 mm is worse at low frequency and drops above 5 kHz;
-2 mm keeps the baffle step; 1 mm matches Morse below 500 Hz
-and sags above 1 kHz. Working choice: 2–2.5 mm.
-
 Ico mesh, not UV: polar triangles on a UV sphere distort 100 Hz and the poles.
-A piston needs the area factor S. A point source is P0 = 1, i.e. e^{ikR}/(4πR). At 1 m, 20 log10(4π) ≈ +22 dB to reach 1 Pa.
-At 8 kHz the edge is about λ/6. A node-centred source, as in some FEM codes, is not available in NumCalc; the standoff is the practical substitute.
+Instead of a point source, a piston (one triangular element) needs the area factor S. A point source is P0 = 1, i.e. e^{ikR}/(4πR). At 1 m, 20 log10(4π) ≈ +22 dB to reach 1 Pa.
+At 8 kHz the edge is about λ/6. A node-centered source, as in some FEM codes, is not available in NumCalc; the standoff is the practical substitute.
 
 ---
 
 ### 5. Practical Summary & Takeaways
 
-Treat Mesh2HRTF as a solid open BEM tool for research and array design — MVDR / LCMV, binaural beamforming, and SSL — in the **$100 – 8000 \mathrm{Hz}$**
-band that matters for AR/VR devices. Use a $\sim 2 \mathrm{mm}$ reciprocal point source for surface microphones, keep an eye on the low-frequency angular
-spread and the mild high-frequency look-direction loss, and add a targeted check when a new mesh or frequency grid is introduced.
+**Treat Mesh2HRTF as a solid open BEM tool for research and array design** — MVDR / LCMV, binaural beamforming, and SSL — in the **$50 – 8000 \mathrm{Hz}$**
+band that matters for AR/VR devices. Use a $\sim 2 \mathrm{mm}$ reciprocal point source for surface microphones, keep an eye on the low-frequency magnitude 
+spread and the mild high-frequency magnitude attenuation (above 6 kHz), and add a targeted check when a new mesh or frequency grid is introduced.
 
-More mature commercial BEM codes pass the $ka \approx 0.1$ test to a few hundredths of a dB. Mesh2HRTF does not: the $0.3 \mathrm{dB}$ front-to-back tilt is a low-frequency discretisation / quadrature error.
+More mature commercial BEM codes pass the $ka \approx 0.18$ test to a few hundredths of a dB. Mesh2HRTF does not: the $0.3 \mathrm{dB}$ magnitude deviation is a low-frequency discretisation / quadrature error.
 
-That matters for **low-frequency array design**. In a superdirective beamformer (MVDR, LCMV) a few tenths of a dB of false magnitude — and the associated phase — change the white-noise gain and the realised directivity. Treat Mesh2HRTF TFs below a few hundred hertz with extra regularisation, or cross-check that band with another solver, before freezing weights.
+That matters for **low-frequency array design**. In a superdirective beamformer (MVDR, LCMV) a few tenths of a dB of false magnitude — and the associated phase — change the white-noise gain and the realised directivity. Treat Mesh2HRTF TFs below a few hundred hertz (~500 Hz) with extra regularisation, or cross-check that band with another solver, before freezing weights.
 
 ---
 
