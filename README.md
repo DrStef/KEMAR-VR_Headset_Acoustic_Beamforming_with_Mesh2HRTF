@@ -236,15 +236,14 @@ Unless we missed a detail in the documentation, $A$ cannot be reused from one so
 Parameters: 
 $c=346.18 \mathrm{m/s}$, FMM cluster $0.05 \mathrm{m}$, standoff $2 \mathrm{mm}$: see `NC.inp`.
 
-
 NumCalc is a Unix binary. On Windows, install **WSL2** with Ubuntu 22.04 and open that terminal (not PowerShell). <br>
-In the Ubuntu window:
+In the Ubuntu window, for each subfolder `source_1` , `source_2` ,`source_3` ,`source_4`  run the following commands:
 
 ```bash
-cd KemarVR_bem/NumCalc
-./NumCalc
+cd .../Kemar_VRHeadset_v002/NumCalc/source_1    
+.../Mesh2HRTF-1.3.0/mesh2hrtf/NumCalc/bin/NumCalc   -istart 1  -iend 80  -nitermax 500
 ```
-
+80 frequencies: 100:100:8000 Hz
 <br>
 <br> 
 
