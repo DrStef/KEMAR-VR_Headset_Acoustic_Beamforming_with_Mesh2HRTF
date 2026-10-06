@@ -34,7 +34,10 @@ Notebooks will be added
 
 ## Overview
 
-Can a free Burton–Miller + FMM solver (Mesh2HRTF / NumCalc) replace a closed BEM code for array design on a dummy + headset in the $100 \mathrm{Hz}$ – $8 \mathrm{kHz}$ AR/VR band?
+This project evaluates the open boundary-element code Mesh2HRTF / NumCalc for microphone-array design and beamforming on a KEMAR-style dummy with a generic VR headset.
+We first validate it on a rigid sphere against an analytical model, then compute transfer functions and a deterministic beamformer on the headset.
+
+Can an open-source Burton–Miller + FMM solver (Mesh2HRTF / NumCalc) replace a closed BEM code for array design on a dummy + headset in the $100 \mathrm{Hz}$ – $8 \mathrm{kHz}$ AR/VR band?
 
 This repo publishes the meshes, the transfer functions, and example MVDR patterns. The optimiser is not included. White-noise gain is floored at $-25 \mathrm{dB}$ below $500 \mathrm{Hz}$, then ramps to $-30 \mathrm{dB}$ above $1 \mathrm{kHz}$.
 
