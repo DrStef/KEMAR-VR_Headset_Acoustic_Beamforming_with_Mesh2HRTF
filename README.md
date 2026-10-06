@@ -226,15 +226,18 @@ The directivity pattern in the $z=0$ plane clearly reveals the onset of spatial 
 
 ### 7. Reproducing the BEM run
 
-Project files (`NC.inp`, skin, $1 \mathrm{m}$ grid) live in `KemarVR_bem/`. <br>
 
+The folders `Kemar_VRHeadset_v002/NumCalc/source_1` … `source_4`  **contain no results**. Only the input file `NC.inp` is there. <br>
+Run the simulation as described below before post-processing.
+
+Notes: 
 At a fixed frequency the BEM unknown is the boundary field.
 NumCalc assembles a square *self-influence* matrix $A(k)$ from the Helmholtz kernel on this skin (KEMAR + headset). $A$ depends on geometry and on frequency $k=\omega/c$ only --- not on where the point source sits. The source position appears in the right-hand side $b(k)$.
 Four seats should therefore be four $b$'s and **one** factorisation of $A(k)$. Today each `source_*` folder still rebuilds $A$. 
 Unless we missed a detail in the documentation, $A$ cannot be reused from one source to the next.
 
 Parameters: 
-$c=346.18 \mathrm{m/s}$, FMM cluster $0.05 \mathrm{m}$, standoff $2 \mathrm{mm}$: see `NC.inp`.
+$c=346.18 \mathrm{m/s}$, FMM cluster $0.1 \mathrm{m}$, standoff $2 \mathrm{mm}$: see `NC.inp`.
 
 NumCalc is a Unix binary. On Windows, install **WSL2** with Ubuntu 22.04 and open that terminal (not PowerShell). <br>
 In the Ubuntu window, for each subfolder `source_1` , `source_2` ,`source_3` ,`source_4`  run the following commands:
@@ -379,6 +382,9 @@ That matters for **low-frequency array design**. In a superdirective beamformer 
 ---
 
 ### 6. How to run the simulation. 
+
+The folders `ICO_Sphere_HD20cm_sol10m_point_source_v1/NumCalc/source_1`  **contains no results**. Only the input file `NC.inp` is there. <br>
+Run the simulation as described below before post-processing.
 
 NumCalc is a Unix binary. On Windows, install **WSL2** with Ubuntu 22.04 and open that terminal (not PowerShell). <br>
 In the Ubuntu window:
