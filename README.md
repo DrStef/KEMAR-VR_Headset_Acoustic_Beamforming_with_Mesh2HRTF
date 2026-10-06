@@ -124,7 +124,7 @@ The skin is **not** a topological sphere. A gap between the headset strap and th
 - binaural beamforming
 - Ambisonics / array processing on a dummy + headset
 
-Microphone examples in this repo use a small linear subset on one side of the headset (2.5 cm spacing). Reciprocal point sources sit $2 \mathrm{mm}$ off the skin.
+Microphone examples in this repo use small linear arrays on one side or both sides of the headset (2.5 cm spacing). Reciprocal point sources sit $2 \mathrm{mm}$ off the skin.
 
 This repository documents **validation** and **far-field TFs** for a 4-microphone subset of the array. Beamforming examples (MVDR, near-field) can be built from these TFs; **the optimizer is not published**.
 
@@ -136,7 +136,6 @@ Four reciprocal point sources sit $2 \mathrm{mm}$ off the skin on the right side
 The design look is the $1 \mathrm{m}$ station $\mathbf{r}=(1,0,0)\,\mathrm{m}$ ($+x$, nose). The beam is **fixed frontal**: one steering vector toward that point.
 The rest of the $\sim 1850$-point unit sphere is only used to plot the pattern and to build the isotropic covariance.
 
-Against a reference FEM/BEM run, magnitude stays within about $0.2 \mathrm{dB}$; phase matches after the $e^{\pm j\omega t}$ convention (`-angle` on NumCalc). MVDR uses these TFs with a WNG floor of $-25 \mathrm{dB}$ below $500 \mathrm{Hz}$, ramping to $-30 \mathrm{dB}$ above $1 \mathrm{kHz}$
 
 
 <div align="center">
@@ -151,9 +150,7 @@ Against a reference FEM/BEM run, magnitude stays within about $0.2 \mathrm{dB}$;
 
 ### 3. Transfer functions at $(1,0,0)$
 
-The four curves are
-$20\log_{10}\bigl|4\pi p (f;\mathbf{r}_{\mathrm{look}})\bigr|$
-for $m=1,2,3,4$, look $\mathbf{r}=(1,0,0) \mathrm{m}$.
+The four curves are $20\log_{10}\bigl|4\pi p (f;\mathbf{r}_{\mathrm{look}})\bigr|$ for $m=1,2,3,4$, look $\mathbf{r}=(1,0,0) \mathrm{m}$.
 Seats and standoff are those of §2.
 
 <div align="center">
@@ -164,8 +161,9 @@ Seats and standoff are those of §2.
 
 </div>
 
-Below $400 \mathrm{Hz}$, mic\_1 and mic\_2 sit about $0.2 \mathrm{dB}$ off a reference FEM/BEM run — the same low $ka$ bias as on the rigid sphere in Part I.
-That mismatch is enough to wrinkle a superdirective MVDR. The WNG floor in the next section, is there so the weights follow the physics, not the solver noise.
+Below $500 \mathrm{Hz}$, mic\_1 and mic\_2 sit about $0.2-0.3 \mathrm{dB}$ off a reference FEM/BEM run — the same low $ka$ bias as on the rigid sphere in Part I. Phase matches after the $e^{\pm j\omega t}$ convention (`-angle` on NumCalc). 
+That mismatch is enough to wrinkle a superdirective MVDR.
+MVDR uses these TFs with a stronger regularization, a WNG floor of $-25 \mathrm{dB}$ below $500 \mathrm{Hz}$, ramping to $-30 \mathrm{dB}$ above $600 \mathrm{Hz}$
 
 ---
 
@@ -233,7 +231,7 @@ Project files (`NC.inp`, skin, $1 \mathrm{m}$ grid) live in `KemarVR_bem/`. <br>
 At a fixed frequency the BEM unknown is the boundary field.
 NumCalc assembles a square *self-influence* matrix $A(k)$ from the Helmholtz kernel on this skin (KEMAR + headset). $A$ depends on geometry and on frequency $k=\omega/c$ only --- not on where the point source sits. The source position appears in the right-hand side $b(k)$.
 Four seats should therefore be four $b$'s and **one** factorisation of $A(k)$. Today each `source_*` folder still rebuilds $A$. 
-$A$ cannot be reused from one frequency to the next.
+Unless we missed a detail in the documentation, $A$ cannot be reused from one source to the next.
 
 Parameters: 
 $c=346.18 \mathrm{m/s}$, FMM cluster $0.05 \mathrm{m}$, standoff $2 \mathrm{mm}$: see `NC.inp`.
