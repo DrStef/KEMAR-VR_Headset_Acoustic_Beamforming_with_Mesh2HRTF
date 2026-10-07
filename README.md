@@ -29,7 +29,18 @@ September 2026  <br>
 
 ### Notebooks
 
-Notebooks will be added
+Install Mesh2HRTF and run the BEM jobs in Ubuntu.
+`ICO_Sphere_HD20cm_sol10m_point_source_v1` and `Kemar_VRHeadset_v002` contain no results at the moment, only the `NC.inp` files that launch the simulation.
+How to run them is at the end of Part I and Part II.
+The notebooks post-process those runs.
+
+**Part I** — rigid sphere, Morse check  
+[ICO_Sphere_Mesh2HRTF_Cluster_v004.ipynb](https://github.com/DrStef/KEMAR-VR_Headset_Acoustic_Beamforming_with_Mesh2HRTF/blob/main/ICO_Sphere_Mesh2HRTF_Cluster_v004.ipynb)
+
+**Part II** — KEMAR + VR headset, mesh, mics, transfer functions  
+[KemarVRHeadset_Mesh2HRTF_v003.ipynb](https://github.com/DrStef/KEMAR-VR_Headset_Acoustic_Beamforming_with_Mesh2HRTF/blob/main/KemarVRHeadset_Mesh2HRTF_v003.ipynb)
+
+Beamforming weights are not in these notebooks.
 
 
 ## Overview
