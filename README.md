@@ -363,7 +363,7 @@ Shown at 500, 1000, 2000 and 4000 Hz.
 
 </div>
 
-### 6. Directivity v. Frequency (Hz) - Horizontal Plane z=0 
+### 6. Directivity v. Frequency (Hz) - Vertical Plane 
 
 The directivity pattern on the equator of the half-sphere in front of the face. The mouth source is at 0°.
 
