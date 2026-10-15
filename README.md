@@ -296,7 +296,7 @@ Near-field behaviour is more delicate than the far-field case: the pattern depen
 
 <div align="center">
 
-|<p align="center"><img src="./pictures/Nearfield_Beamforming_pBoundary_v02.png" alt="Four microphone seats" width="500"></p>|
+|<p align="center"><img src="./pictures/Nearfield_Beamforming_pBoundary_v02.png" alt="Four microphone seats" width="400"></p>|
 |:---:|
 | <p align="center"> <i> Pressure field on the Kemar+VR headset at 4 kHz <br>  Vertical Microphone Array configuration </i> </p>   |
 
