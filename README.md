@@ -315,7 +315,7 @@ The resulting weights can be kept in the frequency domain or fitted as short FIR
 
 <div align="center">
 
-|<p align="center"> <img src="./pictures/NearField_DI_WNG_v01.png" alt="mvdr  wopt" width="350"></p>|<p align="center"><img src="./pictures/NearField_DI_WNG_v01.png" alt="mvdt di and wng" width="650"></p>|   
+|<p align="center"> <img src="./pictures/NearField_MVDR_Wopt_v01.png" alt="mvdr  wopt" width="400"></p>|<p align="center"><img src="./pictures/NearField_DI_WNG_v01.png" alt="mvdt di and wng" width="400"></p>|   
 |:---:|:---:|
 |<p align="center"> <i> MVDR Optimal Weights - Look direction: Mouth </i> </p>|<p align="center"> <i> Directivity Index & White Noise Gain </i> </p>|
 
