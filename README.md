@@ -261,6 +261,69 @@ cd .../Kemar_VRHeadset_v002/NumCalc/source_1
 <br>
 <br> 
 
+
+----
+
+## Part III: Microphone array II — near-field MVDR beamforming  
+
+Fixed look direction toward the mouth.
+
+### 1. Introduction
+
+In this part we design a vertical microphone array to capture the user’s speech in noisy environments.  
+Near-field beamformer design is more delicate than the far-field case: the pattern depends on source distance, and the steering vector is taken from a mouth reference rather than a plane wave.  
+The technique itself is not detailed here. No notebook is provided for this part.
+
+
+### 2. Vertical linear array
+
+Three reciprocal point sources sit 2 mm off the skin, on a vertical end-fire line along the headset axis, 2.5 cm apart.
+
+Coordinates (metres):
+- mic 1: (0.128, 0, 0.02125) — nearest the mouth
+- mic 2: (0.128, 0, 0.04625)
+- mic 3: (0.128, 0, 0.07125)
+
+Each NumCalc run gives the transfer function \(H_m(f;\mathbf{r})\) between seat \(m = 1,2,3\) and the field.  
+The design look is a fixed direction toward the mouth, not a far-field plane wave.  
+The half-sphere in front of the head is used to plot the pattern and to build the isotropic covariance.
+
+Near-field behaviour is more delicate than the far-field case: the pattern depends on source distance, and a vertical line does not keep a single lobe across the band.
+
+
+
+
+
+<div align="center">
+
+|<p align="center"><img src="./pictures/array51_kemar_VR_headset_PlanarDirectivity.png" alt="Four microphone seats" width="500"></p>|
+|:---:|
+| <p align="center"> <i> Directivity v. Frequency, in the plane Z=0  </i> </p>   |
+
+</div>
+
+### 3. Computation of MVDR beamforming weights — DI and WNG
+
+We assume an isotropic noise field.  
+The MVDR weights are computed for a fixed look direction toward the mouth.  
+Directivity index and white-noise gain are evaluated by post-processing on a free-field half-sphere in front of the head.  
+The radius of the half-sphere is not given.
+
+The resulting weights can be kept in the frequency domain or fitted as short FIR filters for time-domain implementation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Part I — Validation of the Mesh2HRTF BEM Solver <br> (Rigid Sphere, $a = 0.1 \mathrm{m}$)
 
 ### 1. Overview & Objectives
