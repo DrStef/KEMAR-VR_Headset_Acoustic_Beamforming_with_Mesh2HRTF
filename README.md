@@ -322,7 +322,40 @@ The resulting weights can be kept in the frequency domain or fitted as short FIR
 </div>
 
 
+### 4. FIR filters
 
+From the BEM simulation and the MVDR optimisation we extract fixed beamforming weights. The weights can be kept as frequency-domain filters or fitted for time-domain implementation. Given the short distance between the mouth and the microphones, maximum amplitude is below 0.3 ms. Energy is concentrated in the first few milliseconds, consistent with direct path plus diffraction.
+
+- Robust fixed beamformer, no adaptation  
+- Frequency-domain weights, 512 bins, 32 ms frame, fs = 16 kHz  
+- Minimum-phase FIR fit for time-domain realisation  
+- Shown here: the three FIR impulse responses, 0–5 ms
+
+
+
+
+<div align="center">
+
+|<p align="center"><img src="./pictures/NearField_FIR_v01.png" alt="FIR" width="600"></p>|
+|:---:|
+| <p align="center"> <i> Near field optimal weights <br>  FIR impulse response </i> </p>   |
+
+</div>
+
+Given the short distance between the mouth and the microphones, maximum amplitude is below 0.3 ms. Energy is concentrated in the first few milliseconds, consistent with direct path plus diffraction.   
+
+
+
+### 5. 3D Beampatterns
+
+
+
+
+
+
+<br>
+<br>
+<br>
 
 
 
