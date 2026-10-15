@@ -365,8 +365,9 @@ Shown at 500, 1000, 2000 and 4000 Hz.
 
 ### 6. Directivity v. Frequency (Hz) - Horizontal Plane z=0 
 
-The directivity pattern in the $z=0$ plane clearly reveals the onset of spatial aliasing starting around $6.5\text{–}7\text{ kHz}$. This behavior is directly governed by the inter-element microphone spacing of $d = 2.5\text{ cm}$. Following the fundamental spatial Nyquist criterion in a free-field environment ($f_c = c / 2d$, where $c \approx 346\text{ m/s}$), the critical aliasing frequency evaluates to approximately $6.9\text{ kHz}$. Beyond this threshold, the spatial sampling interval exceeds $\lambda/2$, leading to the emergence of unwanted grating lobes and a loss of directional integrity in the horizontal plane.
+The directivity pattern on the equator of the half-sphere in front of the face. The mouth source is at 0°.
 
+The pattern clearly reveals the onset of spatial aliasing starting around 6.5–7 kHz. This behaviour is governed by the inter-element spacing of \(d = 2.5\,\mathrm{cm}\). Following the free-field spatial Nyquist criterion \(f_c = c / 2d\) with \(c \approx 346\,\mathrm{m/s}\), the critical frequency is approximately 6.9 kHz. Beyond this threshold the spatial sampling interval exceeds \(\lambda/2\), grating lobes appear, and directional integrity is lost in the horizontal plane.
 
 
 <div align="center">
