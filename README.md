@@ -349,6 +349,11 @@ Given the short distance between the mouth and the microphones, maximum amplitud
 ### 5. 3D Beampatterns
 
 
+Typical patterns of a vertical three-microphone line, look direction toward the mouth.  
+Directivity evaluated on a vertical half-sphere in front of the face.  
+Near-field behaviour is more delicate than the far-field case: the main lobe can split in elevation before spatial aliasing.
+
+Shown at 500, 1000, 2000 and 4000 Hz.
 
 <div align="center">
 
