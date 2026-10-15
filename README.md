@@ -363,6 +363,19 @@ Shown at 500, 1000, 2000 and 4000 Hz.
 
 </div>
 
+### 6. Directivity v. Frequency (Hz) - Horizontal Plane z=0 
+
+The directivity pattern in the $z=0$ plane clearly reveals the onset of spatial aliasing starting around $6.5\text{–}7\text{ kHz}$. This behavior is directly governed by the inter-element microphone spacing of $d = 2.5\text{ cm}$. Following the fundamental spatial Nyquist criterion in a free-field environment ($f_c = c / 2d$, where $c \approx 346\text{ m/s}$), the critical aliasing frequency evaluates to approximately $6.9\text{ kHz}$. Beyond this threshold, the spatial sampling interval exceeds $\lambda/2$, leading to the emergence of unwanted grating lobes and a loss of directional integrity in the horizontal plane.
+
+
+
+<div align="center">
+
+|<p align="center"><img src="./pictures/NearField_Directivity_Frequency_v02.png" alt="Four microphone seats" width="500"></p>|
+|:---:|
+| <p align="center"> <i> Directivity v. Frequency, vertical plane  </i> </p>   |
+
+</div>
 
 
 <br>
