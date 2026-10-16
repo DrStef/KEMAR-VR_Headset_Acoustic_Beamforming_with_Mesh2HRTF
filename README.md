@@ -677,7 +677,7 @@ $$
 
 where the integral is performed over the unit sphere $S^2$ and $d\Omega=\sin\theta\,d\theta\,d\phi$.
 
-**Discrete approximation** used with the NumCalc/EvalGrids 1850-point sphere:
+**Discrete approximation** used with the EvaluationGrids\Default_1m 1850-point sphere:
 
 $$
 \text{DI}(f) \approx 10\log_{10}\left(\frac{N}{\displaystyle\sum_{i=1}^{N}|\mathbf{w}^H\mathbf{d}_i|^2}\right)
