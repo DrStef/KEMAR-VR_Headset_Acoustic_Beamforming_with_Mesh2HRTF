@@ -677,7 +677,7 @@ $$
 
 where the integral is performed over the unit sphere $S^2$ and $d\Omega=\sin\theta\,d\theta\,d\phi$.
 
-**Discrete approximation** used with the 2522-point Blender sphere:
+**Discrete approximation** used with the NumCalc/EvalGrids 1850-point sphere:
 
 $$
 \text{DI}(f) \approx 10\log_{10}\left(\frac{N}{\displaystyle\sum_{i=1}^{N}|\mathbf{w}^H\mathbf{d}_i|^2}\right)
@@ -689,7 +689,7 @@ $$
 \text{DI}(f) \approx 10\log_{10}\left(\frac{4\pi}{\Delta\Omega\displaystyle\sum_{i=1}^{N}|\mathbf{w}^H\mathbf{d}_i|^2\sin\theta_i}\right)
 $$
 
-where $N=2522$ and $\Delta\Omega$ is the solid-angle element corresponding to the spherical grid.  
+where $N=1850$ and $\Delta\Omega$ is the solid-angle element corresponding to the spherical grid.  
 When the look-direction constraint $\mathbf{w}^H\mathbf{d}_0=1$ is enforced, the numerator simplifies to $4\pi$ (continuous) or $N$ (discrete uniform weighting).
 
 
