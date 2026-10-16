@@ -409,7 +409,7 @@ The pattern clearly reveals the onset of spatial aliasing starting around 6.5–
 
 
 
-## Part I — Validation of the Mesh2HRTF BEM Solver <br> (Rigid Sphere, $a = 0.1 \mathrm{m}$)
+## Part I — Validation of the Mesh2HRTF BEM Solver <br> (Rigid Sphere, radius $a = 0.1 \mathrm{m}$)
 
 ### 1. Overview & Objectives
 
