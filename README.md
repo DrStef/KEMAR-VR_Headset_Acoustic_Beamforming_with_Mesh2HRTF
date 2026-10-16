@@ -322,6 +322,11 @@ The resulting weights can be kept in the frequency domain or fitted as short FIR
 </div>
 
 
+DI reaches 8 dB or more between 600 Hz and 4.5 kHz with peaks of 9 to 10 dB between 1.5 and 3.4 kHz. 
+This result is consistent with a 3-element free-field array, slightly better because the shadow effect of the Kemar.
+WNG degradation is moderate under 2 kHz. 
+
+
 ### 4. FIR filters
 
 From the BEM simulation and the MVDR optimisation we extract fixed beamforming weights. The weights can be kept as frequency-domain filters or fitted for time-domain implementation.
