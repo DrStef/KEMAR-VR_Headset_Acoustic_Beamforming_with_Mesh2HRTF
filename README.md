@@ -304,8 +304,8 @@ Near-field behaviour is more delicate than the far-field case: the pattern depen
 
 ### 3. Computation of MVDR beamforming weights — DI and WNG
 
-We assume an isotropic noise field.  
-The MVDR weights are computed for a fixed look direction toward the mouth.  
+The MVDR beamformer weights are computed assuming an isotropic noise field.  
+
 Directivity index and white-noise gain are evaluated by post-processing on a free-field half-sphere in front of the head.  
 The radius of the half-sphere is not given.
 
@@ -324,7 +324,7 @@ The resulting weights can be kept in the frequency domain or fitted as short FIR
 
 ### 4. FIR filters
 
-From the BEM simulation and the MVDR optimisation we extract fixed beamforming weights. The weights can be kept as frequency-domain filters or fitted for time-domain implementation. Given the short distance between the mouth and the microphones, maximum amplitude is below 0.3 ms. Energy is concentrated in the first few milliseconds, consistent with direct path plus diffraction.
+From the BEM simulation and the MVDR optimisation we extract fixed beamforming weights. The weights can be kept as frequency-domain filters or fitted for time-domain implementation.
 
 - Robust fixed beamformer, no adaptation  
 - Frequency-domain weights, 512 bins, 32 ms frame, fs = 16 kHz  
@@ -342,8 +342,7 @@ From the BEM simulation and the MVDR optimisation we extract fixed beamforming w
 
 </div>
 
-Given the short distance between the mouth and the microphones, maximum amplitude is below 0.3 ms. Energy is concentrated in the first few milliseconds, consistent with direct path plus diffraction.   
-
+ Given the short distance between the mouth and the microphones, FIR filters maximum amplitude is below 0.3 ms. Energy is concentrated in the first few milliseconds, consistent with direct path plus diffraction.
 
 
 ### 5. 3D Beampatterns
