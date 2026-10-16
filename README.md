@@ -264,9 +264,9 @@ cd .../Kemar_VRHeadset_v002/NumCalc/source_1
 
 ----
 
-## Part III: Microphone array II — near-field MVDR beamforming  
+## Part III: Microphone array II — near-field MVDR beamforming <br> Fixed look direction toward the mouth. 
 
-Fixed look direction toward the mouth.
+
 
 ### 1. Introduction
 
