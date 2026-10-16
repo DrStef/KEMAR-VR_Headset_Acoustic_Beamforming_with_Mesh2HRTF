@@ -383,6 +383,23 @@ The pattern clearly reveals the onset of spatial aliasing starting around 6.5–
 </div>
 
 
+
+### 7. Conclusions & Takeaways
+
+**From simulation to implementable filters in one workflow.**
+
+Mesh2HRTF is a solid BEM tool for AR/VR array design from 50 Hz to 8 kHz.
+The near-field vertical array yields short, stable FIR filters. Maximum amplitudes stay within 0 to 5 dB, so white-noise gain remains comfortable across the band. No aggressive floor is required.
+Array microphones: a reciprocal point source on the skin at about 2 mm standoff is sufficient.
+Below 500 Hz the magnitude still depends on standoff and departs from a reference solver. Phase matches. 
+In this near-field geometry the effect stays mild.
+
+Open CAD mesh released as STL for R&D.
+
+
+
+
+
 <br>
 <br>
 <br>
