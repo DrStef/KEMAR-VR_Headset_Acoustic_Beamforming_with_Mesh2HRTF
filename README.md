@@ -16,13 +16,16 @@ September 2026  <br>
 **Numerical acoustic array processing and 4-microphone MVDR beamforming for KEMAR with a generic VR headset using an open Boundary Element Method code:  Mesh2HRTF.**
 
 **Numerical acoustic array processing and MVDR beamforming for a KEMAR-style head with a generic VR headset, using the open Boundary Element Method code Mesh2HRTF <br>
--Analytical validation on a rigid sphere  
--4-microphone end-fire array, far-field MVDR  
--3-microphone vertical array, near-field MVDR for speech capture**
+.Analytical validation on a rigid sphere  
+.4-microphone end-fire array, far-field MVDR  
+.3-microphone vertical array, near-field MVDR for speech capture**
 
 Open surface mesh (STL) and project files available to download for R&D.  
 
-
+**Numerical acoustic array processing and MVDR beamforming for a KEMAR-style head with a generic VR headset, using the open Boundary Element Method code Mesh2HRTF** <br>
+- **Analytical validation on a rigid sphere**  
+. **4-microphone end-fire array, far-field MVDR**  
+. **3-microphone vertical array, near-field MVDR for speech capture**
 
 
 <div align="center">
